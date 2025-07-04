@@ -1,12 +1,12 @@
 <?php
-include "../models/usuario.php";
+include_once(__DIR__ . '/../models/usuario.php');
 
 $objeto = new rutinas();
-$respuesta = $objeto->ELIMINAR($_POST["id"]);
+$respuesta = $objeto->ELIMINAR($_GET["id"]);
 
 if ($respuesta instanceof Exception) {
     echo "<script>
-        alert('Error al eliminar usuario');
+        alert('Error al eliminar rutina');
         location.href='../views/rutinas.php';
     </script>";
 } else {

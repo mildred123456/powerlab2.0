@@ -455,12 +455,12 @@ class administrador extends usuario {
                 }
             }
         
-            public function ACTUALIZAR($id, $titulo, $descripcion, $nivel, $dias_por_semana, ) {
+            public function ACTUALIZAR($id, $titulo, $descripcion, $nivel, $dias_por_semana ) {
                 try {
                     include "conexion.php";
             
-                    $actualizar = $conexion->prepare("UPDATE rutinas SET titulo=?, descripcion=?, nivel=?, dias_por_semana=?, WHERE id=?");
-                    $actualizar->execute([$titulo, $descripcion, $nivel, $dias_por_semana,  $id]);
+                    $actualizar = $conexion->prepare("UPDATE rutinas SET titulo=?, descripcion=?, nivel=?, dias_por_semana=? WHERE id=?");
+                    $actualizar->execute([$titulo, $descripcion, $nivel, $dias_por_semana, $id]);
             
                     return true;
                 } catch(Exception $e) {
