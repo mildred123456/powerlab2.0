@@ -1,0 +1,36 @@
+.bg-negro {
+  background-color: #000 !important;
+}
+.action-button a,
+.action-button2 a {
+  color: white;
+  text-decoration: none;
+}
+.action-button,
+.action-button2 {
+  background-color: #ff9c07;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.main-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.main-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  
+}
+main {
+  flex: 1;
+}
