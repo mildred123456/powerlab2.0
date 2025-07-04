@@ -103,8 +103,7 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
                         <th>fecha_nacimiento</th>
                         <th>Género</th> 
                         <th>estado</th>
-                        <th>actualizar</th>
-                        <th>Eliminar</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -117,8 +116,7 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
                             <td class="fecha_nacimiento"><?= $fila[4] ?></td>
                             <td class="genero"><?= $fila[5] ?></td>
                             <td class="estado"><?= $fila[7] ?></td>
-                            <td><button type="button" class="btn btn-warning btn-sm btn-editar" onclick="editarFila(this)">Editar</button></td>
-                            <td><button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminar(<?= $fila[0] ?>)">Eliminar</button></td>
+    
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
