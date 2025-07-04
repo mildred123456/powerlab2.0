@@ -409,47 +409,44 @@ class administrador extends usuario {
 
 
 
-        class rutinas  {
+        class rutinas {
 
-        
-            public function REGISTRAR($titulo, $descripcion, $nivel, $dias_por_semana,$id_instructor,$nombre) {
+            public function REGISTRAR($titulo, $descripcion, $nivel, $dias_por_semana, $id_instructor, $nombre) {
                 try {
                     include "conexion.php";
-            
-    
-                    $insertar = $conexion->prepare("INSERT INTO rutinas (titulo, descripcion, nivel, dias_por_semana,id_instructor,nombre) VALUES (?, ?, ?, ?,?,?)");
-                    $insertar->execute([$_POST['titulo'], $_POST['descripcion'],$_POST['nivel'],$_POST['dias_por_semana'] , $id_instructor, $nombre]);
+        
+                    $insertar = $conexion->prepare("INSERT INTO rutinas (titulo, descripcion, nivel, dias_por_semana, id_instructor, nombre) VALUES (?, ?, ?, ?, ?, ?)");
+                    $insertar->execute([$titulo, $descripcion, $nivel, $dias_por_semana, $id_instructor, $nombre]);
+        
                     $consultar = $conexion->prepare("SELECT * FROM rutinas");
                     $consultar->execute();
-                    
-                    return $consulta->fetchAll(PDO::fetch(PDO::FETCH_ASSOC)); // Devuelve array para usar [0][0], [0][6]
+                    return $consultar->fetchAll(PDO::FETCH_ASSOC); 
+        
                 } catch(Exception $e) {
                     return $e;
                 }
             }
         
-        
             public function ConsultaGeneral() {
                 try {
                     include "conexion.php";
-                    $validar = $conexion->prepare("SELECT * FROM rutina");
+                    $validar = $conexion->prepare("SELECT * FROM rutinas WHERE estado = 'A'");
                     $validar->execute();
                     return $validar->fetchAll(PDO::FETCH_NUM);
                 } catch (Exception $e) {
                     return $e;
                 }
             }
-            
+        
             public function ConsultaEspecifica($dato, $valor) {
                 try {
-                    // Validación para evitar inyección SQL
-                    $permitidos = ['titulo, descripcion, nivel, dias_por_semana,id_instructor,nombre'];
+                    $permitidos = ['titulo', 'descripcion', 'nivel', 'dias_por_semana', 'id_instructor', 'nombre'];
                     if (!in_array($dato, $permitidos)) {
                         throw new Exception("Campo no permitido en búsqueda.");
                     }
-            
+        
                     include "conexion.php";
-                    $sql = "SELECT * FROM rutina WHERE $dato = ? ";
+                    $sql = "SELECT * FROM rutinas WHERE $dato = ?";
                     $validar = $conexion->prepare($sql);
                     $validar->execute([$valor]);
                     return $validar->fetchAll(PDO::FETCH_NUM);
@@ -458,11 +455,23 @@ class administrador extends usuario {
                 }
             }
         
-        
+            public function ACTUALIZAR($id, $titulo, $descripcion, $nivel, $dias_por_semana, ) {
+                try {
+                    include "conexion.php";
+            
+                    $actualizar = $conexion->prepare("UPDATE rutinas SET titulo=?, descripcion=?, nivel=?, dias_por_semana=?, WHERE id=?");
+                    $actualizar->execute([$titulo, $descripcion, $nivel, $dias_por_semana,  $id]);
+            
+                    return true;
+                } catch(Exception $e) {
+                    return $e;
+                }
+            }
+
             public function ELIMINAR($id) {
                 try {
                     include "conexion.php";
-                    $eliminar = $conexion->prepare("UPDATE rutina SET estado = 'I' WHERE id = ?");
+                    $eliminar = $conexion->prepare("UPDATE rutinas SET estado = 'I' WHERE id = ?");
                     $eliminar->execute([$id]);
                     return true;
                 } catch(Exception $e) {
@@ -471,6 +480,5 @@ class administrador extends usuario {
             }
         }
         
-        ?>
     
 
