@@ -38,10 +38,11 @@
     <hr>
 
     <section class="container mt-5">
-        <h2 class="text-center mb-4">Bienvenido al panel de instructor</h2>
-        <p class="text-center">Desde aquí puedes registrar consultar actualizar y eliminar</p>
+        <h2 class="text-center mb-4">Bienvenido al panel de deportista</h2>
+        <p class="text-center">buscar rutinas y compra cositas</p>
     </section>
 
+    
     
 </body>
 </html>

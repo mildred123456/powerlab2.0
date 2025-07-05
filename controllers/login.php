@@ -16,7 +16,7 @@ if (count($datos) == 1) {
     } elseif ($rol == "instructor") {
         header("Location: ../views/rutinas.php");
     } elseif ($rol == "deportista") {
-        header("Location: ../views/deportista-inicio.php");
+        header("Location: ../views/deportista.php");
     } elseif ($rol == "nutricionista") {
         header("Location: ../views/planes.php");
     } else {

@@ -32,14 +32,14 @@ function editarFila(enlace) {
     const descripcionVal = fila.querySelector('.descripcion').textContent.trim();
     const nivelVal = fila.querySelector('.nivel').textContent.trim();
     const diasVal = fila.querySelector('.dias_por_semana').textContent.trim();
-    const estadoVal = fila.querySelector('.estado').textContent.trim();
+   
 
     // Convertir celdas a inputs
     fila.querySelector('.titulo').innerHTML = `<input type='text' class='form-control' id='input_titulo' value='${tituloVal}'>`;
     fila.querySelector('.descripcion').innerHTML = `<input type='text' class='form-control' id='input_descripcion' value='${descripcionVal}'>`;
     fila.querySelector('.nivel').innerHTML = `<input type='text' class='form-control' id='input_nivel' value='${nivelVal}'>`;
     fila.querySelector('.dias_por_semana').innerHTML = `<input type='number' class='form-control' id='input_dias' value='${diasVal}'>`;
-    fila.querySelector('.estado').innerHTML = `<input type='text' class='form-control' id='input_estado' value='${estadoVal}'>`;
+  
 
     // Botón "Actualizar"
     const btnEditar = fila.querySelector('.btn-editar');
@@ -60,7 +60,7 @@ function editarFila(enlace) {
             <input type="hidden" name="descripcion" value="${document.getElementById('input_descripcion').value}">
             <input type="hidden" name="nivel" value="${document.getElementById('input_nivel').value}">
             <input type="hidden" name="dias_por_semana" value="${document.getElementById('input_dias').value}">
-            <input type="hidden" name="estado" value="${document.getElementById('input_estado').value}">
+        
         `;
         
         form.action = '../controllers/actualizar-rutina.php';
@@ -108,7 +108,6 @@ function confirmarEliminar(id) {
                         <th>nivel</th>
                         <th>dias_por_semana</th>
                         <th>fecha_creacion</th>
-                        <th>estado</th>
                         <th>actualizar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -122,7 +121,6 @@ function confirmarEliminar(id) {
                             <td class="nivel"><?= $fila[3] ?></td>
                             <td class="dias_por_semana"><?= $fila[4] ?></td>
                             <td class="fecha_creacion"><?= $fila[5] ?></td>
-                            <td class="estado"><?= $fila[6] ?></td>
                             <td><button type="button" class="btn btn-warning btn-sm btn-editar" onclick="editarFila(this)">Editar</button></td>
                             <td><button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminar(<?= $fila[0] ?>)">Eliminar</button></td>
                         </tr>

@@ -10,8 +10,8 @@ if (!isset($_SESSION['usuario']['id'])) {
 }
 $id_instructor = $_SESSION['usuario']['id'];
 $nombre = $_SESSION['usuario']['nombre'];
-$insertar = $conexion->prepare("INSERT INTO rutinas (titulo, descripcion, nivel, dias_por_semana,id_instructor,nombre) VALUES (?, ?, ?, ?,?,?)");
-$insertar->execute([$_POST['titulo'], $_POST['descripcion'],$_POST['nivel'],$_POST['dias_por_semana'] , $id_instructor, $nombre]);
+$insertar = $conexion->prepare("INSERT INTO rutinas (titulo, descripcion, nivel, dias_por_semana,id_instructor) VALUES (?, ?, ?,?,?)");
+$insertar->execute([$_POST['titulo'], $_POST['descripcion'],$_POST['nivel'],$_POST['dias_por_semana'] , $id_instructor]);
 $consultar = $conexion->prepare("SELECT * FROM rutinas");
 $consultar->execute();
 
