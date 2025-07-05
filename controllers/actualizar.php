@@ -9,7 +9,7 @@ if($respuesta instanceof Exception){
     {
         echo "<script>
                 alert('valor imposible de duplicar');
-                location.href='../views/usuarios.php';        
+                location.href='../views/rutinas.php';        
         </script>";
     }
     else{
@@ -21,7 +21,7 @@ if($respuesta instanceof Exception){
 else{
     echo "<script>
                 alert('Registro actualizado correctamente');
-                location.href='../views/usuarios.php';        
+                location.href='../views/rutinas.php';        
         </script>";
 }
 

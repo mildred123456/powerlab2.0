@@ -1,5 +1,5 @@
 use powerlab;
-DROP TABLE IF EXISTS j;
+DROP TABLE IF EXISTS ;
 
 CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -16,7 +16,6 @@ CREATE TABLE usuario (
 
 
 CREATE TABLE rutinas (
-    nombre VARCHAR(100) NOT NULL,
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(100) NOT NULL,
     descripcion TEXT,
@@ -24,6 +23,8 @@ CREATE TABLE rutinas (
     dias_por_semana INT NOT NULL,
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     id_instructor INT,
+    nombre VARCHAR(100) NOT NULL,
+    estado CHAR(1) DEFAULT 'A',  -- A = Activa, I = Inactiva
     FOREIGN KEY (id_instructor) REFERENCES usuario(id)
 );
 
@@ -47,25 +48,8 @@ INSERT INTO usuario (
     'admin123'
 );
 
-INSERT INTO usuario (
-    nombre,
-    apellido,
-    correo,
-    fecha_nacimiento,
-    genero,
-    rol,
-    estado,
-    contrasenia
-) VALUES (
-    'pepa',
-    'castalleda',
-    'pepa@powerlab.com',
-    '1990-01-01',
-    'femenino',
-    'deportista',
-    'A',
-    'daniela123'
-);
+
 
 SELECT * FROM rutinas;
 SELECT * FROM usuario;
+

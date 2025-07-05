@@ -1,5 +1,5 @@
 <?php
-include_once(__DIR__ . '/../models/usuario.php');
+include_once(__DIR__ . '/../models/rutina.php');
 
 $objeto = new rutinas();
 $respuesta = $objeto->ELIMINAR($_GET["id"]);

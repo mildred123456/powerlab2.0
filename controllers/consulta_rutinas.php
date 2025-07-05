@@ -1,5 +1,5 @@
 <?php
-include_once(__DIR__ . '/../models/usuario.php');
+include "../models/rutina.php";
 $usuario = new rutinas();
 
 if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
@@ -25,62 +25,64 @@ if ($respuesta instanceof Exception) {
     
 
     <script>
-    function editarFila(enlace) {
-        const fila = enlace.closest('tr');
-        const id = fila.querySelector('.id');
-        const titulo = fila.querySelector('.titulo');
-        const descripcion = fila.querySelector('.descripcion');
-        const nivel = fila.querySelector('.nivel');
-        const dias_por_semana = fila.querySelector('.dias_por_semana'); 
-        const fecha_creacion = fila.querySelector('.fecha_creacion');  
-        const estado = fila.querySelector('.estado');
-       
+function editarFila(enlace) {
+    const fila = enlace.closest('tr');
+    const idVal = fila.querySelector('.id').textContent.trim();
+    const tituloVal = fila.querySelector('.titulo').textContent.trim();
+    const descripcionVal = fila.querySelector('.descripcion').textContent.trim();
+    const nivelVal = fila.querySelector('.nivel').textContent.trim();
+    const diasVal = fila.querySelector('.dias_por_semana').textContent.trim();
+    const estadoVal = fila.querySelector('.estado').textContent.trim();
 
-        // valores actuales
-        const idVal = id.textContent.trim();
-        const tituloVal = apellido.textContent.trim();
-        const descripcionVal = correo.textContent.trim();
-        const nivelVal = fecha_nacimiento.textContent.trim();
-        const dias_por_semanaVal = dias_por_semana.textContent.trim();
-        const fecha_creacionVal = genero.textContent.trim();          
-        const estadoVal = estado.textContent.trim();
+    // Convertir celdas a inputs
+    fila.querySelector('.titulo').innerHTML = `<input type='text' class='form-control' id='input_titulo' value='${tituloVal}'>`;
+    fila.querySelector('.descripcion').innerHTML = `<input type='text' class='form-control' id='input_descripcion' value='${descripcionVal}'>`;
+    fila.querySelector('.nivel').innerHTML = `<input type='text' class='form-control' id='input_nivel' value='${nivelVal}'>`;
+    fila.querySelector('.dias_por_semana').innerHTML = `<input type='number' class='form-control' id='input_dias' value='${diasVal}'>`;
+    fila.querySelector('.estado').innerHTML = `<input type='text' class='form-control' id='input_estado' value='${estadoVal}'>`;
+
+    // Botón "Actualizar"
+    const btnEditar = fila.querySelector('.btn-editar');
+    const form = document.getElementById("formu");
+
+    const boton = document.createElement('button');
+    boton.textContent = 'Actualizar';
+    boton.className = 'btn btn-success btn-sm';
+    boton.type = 'button';
+    boton.onclick = function () {
+        // Limpia inputs anteriores del formulario
+        form.innerHTML = '';
+
+        // Crea inputs ocultos con los nuevos valores
+        form.innerHTML = `
+            <input type="hidden" name="id_rutina" value="${idVal}">
+            <input type="hidden" name="titulo" value="${document.getElementById('input_titulo').value}">
+            <input type="hidden" name="descripcion" value="${document.getElementById('input_descripcion').value}">
+            <input type="hidden" name="nivel" value="${document.getElementById('input_nivel').value}">
+            <input type="hidden" name="dias_por_semana" value="${document.getElementById('input_dias').value}">
+            <input type="hidden" name="estado" value="${document.getElementById('input_estado').value}">
+        `;
         
+        form.action = '../controllers/actualizar-rutina.php';
+        form.submit();
+    };
 
-        // inputs
-        titulo.innerHTML = `<input type='text' name=' titulo' class='form-control' value='${ tituloVal}'>`;
-        descripcion.innerHTML = `<input type='text' name='descripcion' class='form-control' value='${descripcionVal}'>`;
-        nivel.innerHTML = `<input type='text' name='nivel' class='form-control' value='${nivelVal}'>`;
-        dias_por_semana.innerHTML = `<input type='text' name='dias_por_semana' class='form-control' value='${dias_por_semanaVal}'>`;
-        fecha_creacion.innerHTML = `<input type='text' name='fecha_creacion' class='form-control' value='${fecha_creacionVal}'>`;
-        estado.innerHTML = `<input type='text' name='estado' class='form-control' value='${estadoVal}'>`;
-        
+    btnEditar.replaceWith(boton);
+}
 
-        const btnEditar = fila.querySelector('.btn-editar');
-        const form = document.getElementById("formu");
+function createHiddenInput(name, value) {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = name;
+    input.value = value;
+    return input;
+}
 
-        // botón actualizar
-        const boton = document.createElement('button');
-        boton.textContent = 'Actualizar';
-        boton.className = 'btn btn-success btn-sm';
-        boton.type = 'button';
-        boton.onclick = function () {
-            const hiddenId = document.createElement('input');
-            hiddenId.type = 'hidden';
-            hiddenId.name = 'id';
-            hiddenId.value = idVal;
-            form.appendChild(hiddenId);
-            form.action = '../controllers/actualizar-rutina.php';
-            form.submit();
-        };
-
-        btnEditar.replaceWith(boton);
+function confirmarEliminar(id) {
+    if (confirm("¿Estás seguro de eliminar esta rutina?")) {
+        window.location.href = `../controllers/eliminar-rutina.php?id=${id}`;
     }
-
-    function confirmarEliminar(id) {
-        if (confirm("¿Estás seguro de eliminar este usuario?")) {
-            window.location.href = `../controllers/eliminar-rutina.php?id=${id}`;
-        }
-    }
+}
 </script>
 </head>
 
