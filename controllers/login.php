@@ -18,7 +18,7 @@ if (count($datos) == 1) {
     } elseif ($rol == "deportista") {
         header("Location: ../views/deportista-inicio.php");
     } elseif ($rol == "nutricionista") {
-        header("Location: ../views/nutricionista-inicio.php");
+        header("Location: ../views/planes.php");
     } else {
         echo "<script>
             alert('Rol no reconocido');

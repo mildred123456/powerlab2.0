@@ -33,6 +33,8 @@ if ($rol == "administrador") {
     include "../views/deportista-inicio.php";
 } else if ($rol == "instructor") {
     include "../views/instructor-inicio.php";
+}  else if ($rol == "nutricionista") {
+    include "../views/nutricionista-inicio.php";
 } else {
   echo "<script>
   alert('!ups¡ Algo salio mal :( Verifique de nuevo la informacion, gracias.');
@@ -45,51 +47,34 @@ if ($rol == "administrador") {
 <section class="container mt-4">
   <div class="accordion" id="accordionExample">
     
-   
+    <!-- CONSULTA DE USUARIOS -->
     <div class="accordion-item bg-dark text-white">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-           Consulta de deportistas
+           Consulta de Usuarios
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <?php
-            include "../views/buscador-deportistas.php";
+            include "../views/buscador_pacientes.php";
             echo "<hr>";
-            include "../controllers/consulta_deportistas.php";
+            include "../controllers/consulta_pacientes.php";
           ?>
         </div>
       </div>
     </div>
 
-    <div class="accordion-item bg-dark text-white">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-           Consulta de rutinas
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <?php
-            include "../views/buscador-rutinas.php";
-            echo "<hr>";
-            include "../controllers/consulta_rutinas.php";
-          ?>
-        </div>
-      </div>
-    </div>
-
-    
+    <!-- REGISTRO DE USUARIOS -->
     <div class="accordion-item bg-dark text-white">
       <h2 class="accordion-header" id="headingTwo">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-            Registro de rutinas
+            Registro de planes
         </button>
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <?php include "../views/registro-rutinas.html"; ?>
+          <?php include "../views/planes.html"; ?>
         </div>
       </div>
     </div>
