@@ -27,12 +27,12 @@ if (!isset($_SESSION["usuario"])) {
 
 $rol = $_SESSION["usuario"]["rol"];
 
-if ($rol == "administrador") {
-    include "../views/administrador-inicio.php";
-} else if ($rol == "deportista") {
+if ($rol == "deportista") {
+    include "../views/deportista-inicio.php";
+} else if ($rol == "administrador") {
     include "../views/deportista-inicio.php";
 } else if ($rol == "instructor") {
-    include "../views/";
+    include "../views/deportista-inicio.php";
 } else {
   echo "<script>
   alert('!ups¡ Algo salio mal :( Verifique de nuevo la informacion, gracias.');
@@ -40,7 +40,36 @@ if ($rol == "administrador") {
 </script>"; // Solo si el rol no coincide
     exit();
 }
+
 ?>
+
+<section class="container mt-4">
+  <div class="accordion" id="accordionExample">
+
+
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+           Consulta de rutinas
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <?php
+            include "../views/solo-buscador-rutinas.php";
+            echo "<hr>";
+            include "../controllers/solo-consulta-rutinas.php";
+          ?>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+
+
+
+
 
 <section class="container mt-4">
   <div class="accordion" id="accordionExample">
@@ -49,7 +78,7 @@ if ($rol == "administrador") {
     <div class="accordion-item bg-dark text-white">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-           Consulta de Usuarios
+           Consulta de intructores
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -77,12 +106,20 @@ if ($rol == "administrador") {
       </div>
     </div>
 
+    <div class="d-grid gap-2">
+      <a href="marketplace.html">
+      <button class="btn btn-outline-warning" type="button"> Tienda </button>
+</a>
+    </div>
+
   </div>
 </section>
+
+
 
 <footer>
   PowerLab © 2025 - Todos los derechos reservados
 </footer>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

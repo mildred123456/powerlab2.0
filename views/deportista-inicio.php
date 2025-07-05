@@ -23,12 +23,10 @@
                 </div>
                 <div class="col-8">
                     <nav class="nav nav-pills flex-column flex-sm-row justify-content-center mt-3">
-                        <a class="flex-sm-fill text-sm-center nav-link" href="#"> Usuarios</a>
-                        <a class="flex-sm-fill text-sm-center nav-link" href="#"> Ejercicios</a>
-                        <a class="flex-sm-fill text-sm-center nav-link" href="#"> Rutinas</a>
-                        <a class="flex-sm-fill text-sm-center nav-link" href="#"> Reportes</a>
-                        <a class="flex-sm-fill text-sm-center nav-link" href="#"> Configuración</a>
-                        <a class="flex-sm-fill text-sm-center nav-link" href="../controllers/logout.php"> Salir</a>
+                        <a class="flex-sm-fill text-sm-center nav-link" href="#"> Tienda </a>
+                        <a class="flex-sm-fill text-sm-center nav-link" href="#"> Rutinas </a>
+                        <a class="flex-sm-fill text-sm-center nav-link" href="#"> Configuración </a>
+                        <a class="flex-sm-fill text-sm-center nav-link" href="../controllers/logout.php"> Salir </a>
                     </nav>
                 </div>
             </div>
@@ -37,11 +35,7 @@
 
     <hr>
 
-    <section class="container mt-5">
-        <h2 class="text-center mb-4">Bienvenido al panel de deportista</h2>
-        <p class="text-center">buscar rutinas y compra cositas</p>
-    </section>
-
+  <h1>bienvennido usuario</h1>
     
     
 </body>

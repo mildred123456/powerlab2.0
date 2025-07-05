@@ -65,8 +65,7 @@ if ($rol == "administrador") {
     </section>
     
     <section class="container mt-4">
-    <div class="accordion" id="accordionExample">
-      
+      <div class="accordion" id="accordionExample">
     <div class="accordion-item bg-dark text-white">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
