@@ -25,7 +25,7 @@
     </div>
     <div class="col-auto">
       <button type="submit" class="btn btn-warning">Buscar</button>
-      <a href="<?= $_SERVER['PHP_SELF'] ?>" class="btn btn-outline-light">Limpiar</a>
+      <a href="<?= $_SERVER['PHP_SELF'] ?>" class="btn-outline-secondary">Limpiar</a>
     </div>
   </div>
 </form>

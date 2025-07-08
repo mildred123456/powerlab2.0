@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
-  <link href="../css/usuarios.css" rel="stylesheet" />
+
  
 </head>
 
@@ -46,7 +46,7 @@ if ($rol == "administrador") {
   <div class="accordion" id="accordionExample">
     
     <!-- CONSULTA DE USUARIOS -->
-    <div class="accordion-item bg-dark text-white">
+    <div class="bg-white text-dark shadow-sm">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
            Consulta de Usuarios
@@ -64,7 +64,7 @@ if ($rol == "administrador") {
     </div>
 
     <!-- REGISTRO DE USUARIOS -->
-    <div class="accordion-item bg-dark text-white">
+    <div class="accordion-item">
       <h2 class="accordion-header" id="headingTwo">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
             Registro de Usuarios
@@ -80,9 +80,9 @@ if ($rol == "administrador") {
   </div>
 </section>
 
-<footer>
-  PowerLab © 2025 - Todos los derechos reservados
-</footer>
+<footer class="text-center py-3 mt-auto">
+    © 2025 PowerLab. Todos los derechos reservados.
+  </footer>
 
 </body>
 </html>

@@ -19,7 +19,7 @@
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col-4">
-                    <img src="../imagenes/logopower.png" width="20%" alt="Logo PowerLab">
+                <img src="../imagenes/logopower.png" alt="Logo" style="height: 70px; margin-right: 35px;">
                 </div>
                 <div class="col-8">
                     <nav class="nav nav-pills flex-column flex-sm-row justify-content-center mt-3">

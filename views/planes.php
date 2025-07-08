@@ -48,7 +48,7 @@ if ($rol == "administrador") {
   <div class="accordion" id="accordionExample">
     
     <!-- CONSULTA DE USUARIOS -->
-    <div class="accordion-item bg-dark text-white">
+    <div class="bg-white text-dark shadow-sm">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
            Consulta de Usuarios

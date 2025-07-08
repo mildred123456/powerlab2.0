@@ -5,65 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PowerLab</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../views/css/Elije-tu-rol.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="../views/css/Elije_tu_rol.css">
 </head>
-<body class="bg-black text-white">
-  
-  
+<body>
+
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-negro border-bottom border-white px-4">
+  <nav class="navbar navbar-expand-lg border-bottom px-4 shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center text-white" href="#">
-        <img src="../imagenes/logopower.png" alt="Logo" style="height: 50px; margin-right: 15px;">
+      <a class="navbar-brand d-flex align-items-center text-dark" href="#">
+        <img src="../imagenes/logopower.png" alt="Logo" style="height: 70px; margin-right: 35px;">
       </a>
       <div class="d-flex align-items-center ms-auto">
-        <a href="#" class="text-white mx-3 text-decoration-none">Ayuda</a>
-        <a href="#" class="text-white mx-3 text-decoration-none">Planes</a>
-        <a href="#" class="text-white mx-3 text-decoration-none">Promociones</a>
+        <a href="#" class="mx-3 text-decoration-none">Ayuda</a>
+        <a href="#" class="mx-3 text-decoration-none">Planes</a>
+        <a href="#" class="mx-3 text-decoration-none">Promociones</a>
       </div>
     </div>
   </nav>
-  
+
   <!-- Contenido principal -->
   <main class="container text-center my-5">
-    <h1 class="main-title">Elige tu Camino en powerlab</h1>
+    <h1 class="main-title">Elige tu Camino en PowerLab</h1>
     <p class="main-subtitle">Una plataforma para entrenar o inspirar.</p>
 
     <div class="row justify-content-center g-4">
       <!-- Tarjeta Registrarme -->
       <div class="col-md-5">
-        <div class="card bg-dark text-white h-100">
+        <div class="card h-100 shadow-sm">
           <div class="card-body">
             <h2 class="card-title">Registrarme</h2>
             <p class="card-text">Accede a rutinas personalizadas, nutrición y seguimiento.</p>
-            <button class="action-button mt-3">
-              <a href="registros.html">¡Unirme a la Comunidad!</a>
-            </button>
+            
+            <a href="registros.html" class="btn btn-warning fw-bold mt-3">
+              <i class="bi bi-person-plus-fill me-2"></i> ¡Unirme a la Comunidad!
+            </a>
+          
           </div>
         </div>
       </div>
 
       <!-- Tarjeta Iniciar Sesión -->
       <div class="col-md-5">
-        <div class="card bg-dark text-white h-100">
+        <div class="card h-100 shadow-sm">
           <div class="card-body">
             <h2 class="card-title">Iniciar sesión</h2>
-            <p class="card-text">Iniciar sesión en powerlab.</p>
-            <button class="action-button2 mt-3">
-              <a href="../views/inicio-de-sesion.php">¡Ya soy parte!</a>
-            </button>
+            <p class="card-text">Iniciar sesión en PowerLab.</p>
+          
+            <a href="../views/inicio-de-sesion.php" class="btn btn-warning fw-bold mt-3">
+              <i class="bi bi-box-arrow-in-right me-2"></i> ¡Ya soy parte!
+            </a>
+           
           </div>
         </div>
       </div>
     </div>
   </main>
 
+  <!-- Footer -->
+  <footer class="text-center text-muted border-top py-3">
+    © 2025 Powerlab. Todos los derechos reservados.
+  </footer>
+
   
- <!-- Footer -->
- <footer class="bg-black border-top border-light text-center text-secondary py-3 mt-auto">
-  <p>© 2025 FlowFit. Todos los derechos reservados.</p>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/main.js"></script>
+
+
 </body>
 </html>

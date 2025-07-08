@@ -81,7 +81,7 @@ function createHiddenInput(name, value) {
 </head>
 
 <body>
-<div class="container bg-black text-white p-4 rounded">
+<div class="container bg-white text-dark shadow-sm">
         <header class="d-flex justify-content-between align-items-center mb-4">
             <div>
                 
@@ -93,7 +93,7 @@ function createHiddenInput(name, value) {
         </header>
 
         <form id="formu" method="post">
-            <table class="table table-dark table-hover text-center align-middle">
+            <table class="table table-striped table-hover">
                 <thead class="text-warning">
                     <tr>
                         <th>ID</th>

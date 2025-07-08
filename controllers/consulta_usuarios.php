@@ -88,19 +88,19 @@ if ($respuesta instanceof Exception) {
 </head>
 
 <body>
-<div class="container bg-black text-white p-4 rounded">
+<div class="container bg-white text-dark shadow-sm">
         <header class="d-flex justify-content-between align-items-center mb-4">
             <div>
                 
-                <span class="text-warning">Gestión de Usuarios - PowerLab</span>
+                <span class="table-light">Gestión de Usuarios - PowerLab</span>
             </div>
             <div>
-                <a href="admin-inicio.php" class="btn btn-outline-light btn-sm">← Volver</a>
+                <a href="admin-inicio.php" class="btn-outline-secondary">← Volver</a>
             </div>
         </header>
 
         <form id="formu" method="post">
-            <table class="table table-dark table-hover text-center align-middle">
+            <table class="table table-striped table-hover">
                 <thead class="text-warning">
                     <tr>
                         <th>ID</th>

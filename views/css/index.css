@@ -1,106 +1,21 @@
-/* ======== RESET GENERAL ======== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-}
 
-/* ======== FONDO Y TEXTO ======== */
-body {
-  background-color: #000;
-  color: #fff;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
-
-/* ======== NAVBAR ======== */
-.navbar {
-  background-color: rgba(0, 0, 0, 0.85);
-  border-bottom: 2px solid #fff;
-}
-
-.navbar a {
-  color: white;
-  transition: color 0.3s ease;
-}
-
-.navbar a:hover {
-  color: orange;
-}
-
-/* ======== IMAGEN CENTRAL Y MENSAJE ======== */
-.main-banner {
-  position: relative;
-  margin-top: 2rem;
-  text-align: center;
-}
-
-.main-banner img {
-  max-height: 600px;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 0 25px rgba(255, 165, 0, 0.5);
-}
-
-.main-banner .overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.65);
-  padding: 2rem;
-  border-radius: 15px;
-  max-width: 600px;
-}
-
-.main-banner .promo-box {
-  position: absolute;
-  bottom: 15px;
-  right: 25px;
-  background-color: rgba(255, 165, 0, 0.9);
-  color: #000;
-  font-weight: bold;
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 140, 0, 0.8);
-}
-
-/* ======== BOTÓN PERSONALIZADO ======== */
-.btn-warning {
-  background-color: rgba(255, 165, 0, 0.9) !important;
-  color: #000 !important;
-  font-weight: bold;
-  border: none;
-  box-shadow: 0 0 15px rgba(255, 200, 0, 0.8);
-  transition: transform 0.2s;
-}
-
-.btn-warning:hover {
-  transform: scale(1.05);
-}
-
-/* ======== GALERÍA ======== */
-.gallery-item {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
-}
-
-.gallery-item img {
-  border-radius: 8px;
-}
-
-.gallery-item p {
-  color: orange;
-  font-weight: bold;
-  margin-top: 0.5rem;
-}
-
-/* ======== FOOTER ======== */
-
-.bg-negro {
-  background-color: #000 !important;
-}
+    body {
+      background-color: #ffffff;
+      color: #212529;
+    }
+    .navbar {
+      background-color: #f8f9fa;
+    }
+    .bg-lightgray {
+      background-color: #f1f3f5;
+    }
+    .text-brand {
+      color: #ff8800; /* naranja suave */
+    }
+    .btn-warning {
+      background-color: #ffcc00;
+      border: none;
+    }
+    .btn-warning:hover {
+      background-color: #ffb700;
+    }

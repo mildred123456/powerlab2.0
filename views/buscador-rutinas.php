@@ -11,7 +11,7 @@
 </head>
 <body>
 <form method="post" class="mb-4">
-  <div class="row g-2">
+  <div class="row g-2 align-items-center">
     <div class="col-auto">
       <select name="dato" class="form-select">
         <option value="titulo">titulo</option>

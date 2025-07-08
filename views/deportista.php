@@ -56,7 +56,7 @@ if ($rol == "deportista") {
         <div class="accordion-body">
           <?php
             include "../views/solo-buscador-rutinas.php";
-            echo "<hr>";
+            echo "<hr >";
             include "../controllers/solo-consulta-rutinas.php";
           ?>
         </div>
@@ -75,7 +75,7 @@ if ($rol == "deportista") {
   <div class="accordion" id="accordionExample">
     
     <!-- CONSULTA DE USUARIOS -->
-    <div class="accordion-item bg-dark text-white">
+    <div class="bg-white text-dark shadow-sm">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
            Consulta de intructores

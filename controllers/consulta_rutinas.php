@@ -99,7 +99,7 @@ function confirmarEliminar(id) {
         </header>
 
         <form id="formu" method="post">
-            <table class="table table-dark table-hover text-center align-middle">
+            <table class="table table-striped table-hover">
                 <thead class="text-warning">
                     <tr>
                         <th>ID</th>
