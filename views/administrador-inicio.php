@@ -38,8 +38,8 @@
     <hr>
 
     <section class="container mt-5">
-        <h2 class="text-center mb-4">Bienvenido al panel de administración</h2>
-        <p class="text-center">Desde aquí puedes consultar actualizar y aliminar</p>
+        <h2 class="text-center mb-4">Bienvenido al panel de admin</h2>
+        <p class="text-center">Desde aquí puedes consultar actualizar y eliminar</p>
     </section>
 
     

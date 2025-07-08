@@ -63,9 +63,7 @@ function editarFila(enlace) {
         
         `;
         
-        form.action = '../controllers/actualizar-rutina.php';
-        form.submit();
-    };
+       
 
     btnEditar.replaceWith(boton);
 }
@@ -78,11 +76,7 @@ function createHiddenInput(name, value) {
     return input;
 }
 
-function confirmarEliminar(id) {
-    if (confirm("¿Estás seguro de eliminar esta rutina?")) {
-        window.location.href = `../controllers/eliminar-rutina.php?id=${id}`;
-    }
-}
+
 </script>
 </head>
 
@@ -108,8 +102,6 @@ function confirmarEliminar(id) {
                         <th>nivel</th>
                         <th>dias_por_semana</th>
                         <th>fecha_creacion</th>
-                        <th>actualizar</th>
-                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -121,8 +113,7 @@ function confirmarEliminar(id) {
                             <td class="nivel"><?= $fila[3] ?></td>
                             <td class="dias_por_semana"><?= $fila[4] ?></td>
                             <td class="fecha_creacion"><?= $fila[5] ?></td>
-                            <td><button type="button" class="btn btn-warning btn-sm btn-editar" onclick="editarFila(this)">Editar</button></td>
-                            <td><button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminar(<?= $fila[0] ?>)">Eliminar</button></td>
+                            
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

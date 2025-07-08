@@ -2,12 +2,12 @@
 
 class rutinas {
 
-public function REGISTRAR($titulo, $descripcion, $nivel, $dias_por_semana, $id_instructor, $nombre) {
+public function REGISTRAR($titulo, $descripcion, $nivel, $dias_por_semana, $id_instructor , $estado) {
     try {
         include "conexion.php";
 
-        $insertar = $conexion->prepare("INSERT INTO rutinas (titulo, descripcion, nivel, dias_por_semana, id_instructor, nombre) VALUES (?, ?, ?, ?, ?, ?)");
-        $insertar->execute([$titulo, $descripcion, $nivel, $dias_por_semana, $id_instructor, $nombre]);
+        $insertar = $conexion->prepare("INSERT INTO rutinas (titulo, descripcion, nivel, dias_por_semana, id_instructor, estado) VALUES (?, ?, ?, ?, ?,?)");
+        $insertar->execute([$titulo, $descripcion, $nivel, $dias_por_semana, $id_instructor, $estado]);
 
         $consultar = $conexion->prepare("SELECT * FROM rutinas");
         $consultar->execute();
@@ -31,7 +31,7 @@ public function ConsultaGeneral() {
 
 public function ConsultaEspecifica($dato, $valor) {
     try {
-        $permitidos = ['titulo', 'descripcion', 'nivel', 'dias_por_semana', 'id_instructor', 'nombre'];
+        $permitidos = [ 'titulo', 'descripcion', 'nivel', 'dias_por_semana', 'id_instructor', 'nombre'];
         if (!in_array($dato, $permitidos)) {
             throw new Exception("Campo no permitido en búsqueda.");
         }
@@ -46,17 +46,18 @@ public function ConsultaEspecifica($dato, $valor) {
     }
 }
 
-public function ACTUALIZAR($id, $titulo, $descripcion, $nivel, $dias_por_semana) {
+public function ACTUALIZAR($id, $titulo, $descripcion, $nivel, $dias_por_semana) {    
     try {
         include "conexion.php";
 
-        $actualizar = $conexion->prepare("UPDATE rutinas SET titulo=?, descripcion=?, nivel=?, dias_por_semana=? WHERE id_rutina=?");
+        $actualizar = $conexion->prepare("UPDATE rutinas SET titulo=?, descripcion=?, nivel=?, dias_por_semana=? WHERE id=?");
         $actualizar->execute([$titulo, $descripcion, $nivel, $dias_por_semana, $id]);
 
         // Si no se afectó ninguna fila, algo falló o se envió lo mismo
         if ($actualizar->rowCount() === 0) {
             return new Exception("No se modificó ninguna fila.");
-        }
+
+        }      
 
         return true;
     } catch(Exception $e) {

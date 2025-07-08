@@ -44,7 +44,7 @@ if ($respuesta instanceof Exception) {
         header("Location: ../views/rutinas.php");
         exit();
     } elseif ($rol == "deportista") {
-        header("Location: ../views/deportista-inicio.php");
+        header("Location: ../views/deportista.php");
         exit();
     } elseif ($rol == "nutricionista") {
         header("Location: ../views/planes.php");
