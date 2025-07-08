@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>instructor - PowerLab</title>
+    <title>Administrador - PowerLab</title>
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/index.css"> <!-- Asegúrate de tenerlo -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +19,7 @@
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col-4">
-                    <img src="../imagenes/logopower.png" width="20%" alt="Logo PowerLab">
+                <img src="../imagenes/logopower.png" alt="Logo" style="height: 70px; margin-right: 35px;">
                 </div>
                 <div class="col-8">
                     <nav class="nav nav-pills flex-column flex-sm-row justify-content-center mt-3">
@@ -39,8 +38,8 @@
     <hr>
 
     <section class="container mt-5">
-        <h2 class="text-center mb-4">Bienvenido al panel de instructor  </h2> 
-       <p class="text-center">Desde aquí puedes consultar actualizar y eliminar</p> 
+        <h2 class="text-center mb-4">Bienvenido al panel de instructor</h2>
+        <p class="text-center">Desde aquí puedes consultar actualizar y eliminar</p>
     </section>
 
     

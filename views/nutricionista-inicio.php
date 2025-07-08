@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Administrador - PowerLab</title>
+    <title>instructor - PowerLab</title>
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/index.css"> <!-- Asegúrate de tenerlo -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +26,7 @@
                     <nav class="nav nav-pills flex-column flex-sm-row justify-content-center mt-3">
                         <a class="flex-sm-fill text-sm-center nav-link" href="#"> Usuarios</a>
                         <a class="flex-sm-fill text-sm-center nav-link" href="#"> Ejercicios</a>
-                        <a class="flex-sm-fill text-sm-center nav-link" href="#"> planes</a>
+                        <a class="flex-sm-fill text-sm-center nav-link" href="#"> Rutinas</a>
                         <a class="flex-sm-fill text-sm-center nav-link" href="#"> Reportes</a>
                         <a class="flex-sm-fill text-sm-center nav-link" href="#"> Configuración</a>
                         <a class="flex-sm-fill text-sm-center nav-link" href="../controllers/logout.php"> Salir</a>
@@ -38,8 +39,8 @@
     <hr>
 
     <section class="container mt-5">
-        <h2 class="text-center mb-4">Bienvenido al panel de nutricionista</h2>
-        <p class="text-center">Desde aquí puedes consultar actualizar y eliminar</p>
+        <h2 class="text-center mb-4">Bienvenido al panel de nutricionista  </h2> 
+       <p class="text-center">Desde aquí puedes consultar actualizar y eliminar</p> 
     </section>
 
     
