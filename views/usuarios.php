@@ -86,3 +86,5 @@ if ($rol == "administrador") {
 
 </body>
 </html>
+
+<!-- oli -->
