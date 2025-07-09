@@ -114,6 +114,8 @@ function createHiddenInput(name, value) {
                             <td class="dias_por_semana"><?= $fila[4] ?></td>
                             <td class="fecha_creacion"><?= $fila[5] ?></td>
                             
+                           
+                          
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -123,6 +125,7 @@ function createHiddenInput(name, value) {
         <div class="text-center mt-4">
             <a href="../controllers/reportexls_usuarios.php" class="btn btn-outline-success"> Exportar Excel</a>
             <a href="../controllers/reportepdf_usuarios.php" class="btn btn-outline-danger"> Exportar PDF</a>
+            
         </div>
     </div>
 

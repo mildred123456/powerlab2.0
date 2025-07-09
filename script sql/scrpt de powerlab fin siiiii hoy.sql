@@ -28,6 +28,21 @@ CREATE TABLE rutinas (
     FOREIGN KEY (id_instructor) REFERENCES usuario(id)
 );
 
+
+CREATE TABLE asignaciones (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  id_deportista INT,
+  id_instructor INT,
+  tipo_asignacion VARCHAR(20), -- "rutina" o "reporte" ""
+  contenido TEXT,
+  estado VARCHAR(20) DEFAULT 'pendiente', -- "pendiente", "realizado", "tomado en cuenta "
+  fecha_asignacion DATETIME DEFAULT NOW(),
+  FOREIGN KEY (id_deportista) REFERENCES usuario(id),
+  FOREIGN KEY (id_instructor) REFERENCES usuario(id)
+);
+
+
+
 INSERT INTO usuario (
     nombre,
     apellido,
@@ -52,4 +67,9 @@ INSERT INTO usuario (
 
 SELECT * FROM rutinas;
 SELECT * FROM usuario;
+SELECT * FROM asignaciones;
 
+
+
+INSERT INTO asignaciones (id_instructor, id_deportista, tipo_asignacion, contenido)
+VALUES (23, 20, 'rutina', 'Rutina de fuerza: 3 días por semana, 45 min por sesión');
