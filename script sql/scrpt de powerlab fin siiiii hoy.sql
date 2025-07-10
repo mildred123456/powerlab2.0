@@ -1,5 +1,5 @@
 use powerlab;
-DROP TABLE IF EXISTS ;
+DROP TABLE IF EXISTS rutinas;
 
 CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -15,17 +15,12 @@ CREATE TABLE usuario (
 );
 
 
-CREATE TABLE rutinas (
+CREATE TABLE solicitudes_contacto (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(100) NOT NULL,
-    descripcion TEXT,
-    nivel ENUM('principiante', 'intermedio', 'avanzado') NOT NULL,
-    dias_por_semana INT NOT NULL,
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    id_instructor INT,
-    nombre VARCHAR(100) NOT NULL,
-    estado CHAR(1) DEFAULT 'A',  -- A = Activa, I = Inactiva
-    FOREIGN KEY (id_instructor) REFERENCES usuario(id)
+    id_usuario INT NOT NULL,
+    id_instructor INT NOT NULL,
+    estado VARCHAR(20) DEFAULT 'pendiente',
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 
@@ -65,11 +60,22 @@ INSERT INTO usuario (
 
 
 
-SELECT * FROM rutinas;
+
 SELECT * FROM usuario;
 SELECT * FROM asignaciones;
+SELECT * FROM solicitudes_contacto;
 
 
-
-INSERT INTO asignaciones (id_instructor, id_deportista, tipo_asignacion, contenido)
-VALUES (23, 20, 'rutina', 'Rutina de fuerza: 3 días por semana, 45 min por sesión');
+INSERT INTO asignaciones (
+    id_deportista,
+    id_instructor,
+    tipo_asignacion,
+    estado,
+    contenido
+) VALUES (
+    20,               -- ID del deportista (ajusta según tu base de datos)
+    23,               -- ID del instructor
+    'rutina',        -- o 'reporte'
+    'completado',
+    'Rutina de pierna: sentadillas, prensa, zancadass.'
+);
