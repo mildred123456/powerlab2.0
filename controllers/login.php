@@ -1,6 +1,7 @@
 <?php
-include "../models/usuario.php";
 session_start();
+include "../models/usuario.php";
+
 
 $objeto = new usuario();
 $datos = $objeto->Login($_POST["correo"], $_POST["contrasenia"]);

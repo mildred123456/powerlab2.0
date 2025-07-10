@@ -1,46 +1,92 @@
+
 <?php
 
 class SolicitudesContacto {
-    // Crear una nueva solicitud de contacto
-    public function crearSolicitud($id_usuario, $id_instructor) {
+
+    private $conexion;
+
+    public function __construct() {
+        include "conexion.php";
+        $this->conexion = $conexion;
+    }
+
+    public function REGISTRAR($id_usuario, $id_instructor, $estado, $fecha) {
         try {
-            include __DIR__ . "/conexion.php";
-            $sql = "INSERT INTO solicitudes_contacto (id_usuario, id_instructor) VALUES (?, ?)";
-            $stmt = $conexion->prepare($sql);
-            $stmt->execute([$id_usuario, $id_instructor]);
-            return true;
-        } catch (Exception $e) {
-            return $e;
+            $stmt = $this->conexion->prepare("INSERT INTO solicitudes_contacto (id_usuario, id_instructor, estado, fecha) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$id_usuario, $id_instructor, $estado, $fecha]);
+
+            $id = $this->conexion->lastInsertId();
+            $consulta = $this->conexion->prepare("SELECT * FROM solicitudes_contacto WHERE id = ?");
+            $consulta->execute([$id]);
+            return $consulta->fetch(PDO::FETCH_ASSOC);
+
+        } catch(Exception $e) {
+            return "Error: " . $e->getMessage();
         }
     }
 
-    // Obtener todas las solicitudes de un instructor
-    public function obtenerPorInstructor($id_instructor) {
+    public function consultaGeneral() {
         try {
-            include __DIR__ . "/conexion.php";
-            $sql = "SELECT s.id, s.id_usuario, u.nombre, s.estado, s.fecha
-                    FROM solicitudes_contacto s
-                    JOIN usuario u ON s.id_usuario = u.id
-                    WHERE s.id_instructor = ?
-                    ORDER BY s.fecha DESC";
-            $stmt = $conexion->prepare($sql);
-            $stmt->execute([$id_instructor]);
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt = $this->conexion->prepare("SELECT * FROM solicitudes_contacto");
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_NUM);
         } catch (Exception $e) {
-            return $e;
+            return "Error: " . $e->getMessage();
         }
     }
 
-    // Actualizar estado de una solicitud (aceptar o rechazar)
-    public function actualizarEstado($id, $estado) {
+    public function consultaEspecifica($campo, $valor) {
         try {
-            include __DIR__ . "/conexion.php";
-            $sql = "UPDATE solicitudes_contacto SET estado = ? WHERE id = ?";
-            $stmt = $conexion->prepare($sql);
+            $permitidos = ['id_usuario', 'id_instructor', 'estado', 'fecha'];
+            if (!in_array($campo, $permitidos)) {
+                throw new Exception("Campo no permitido en búsqueda.");
+            }
+
+            $sql = "SELECT * FROM solicitudes_contacto WHERE $campo = ?";
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->execute([$valor]);
+            return $stmt->fetchAll(PDO::FETCH_NUM);
+
+        } catch (Exception $e) {
+            return "Error: " . $e->getMessage();
+        }
+    }
+
+    public function actualizar($estado, $id) {
+        try {
+            $stmt = $this->conexion->prepare("UPDATE solicitudes_contacto SET estado = ? WHERE id = ?");
             $stmt->execute([$estado, $id]);
+
+            if ($stmt->rowCount() === 0) {
+                return "No se modificó ninguna fila.";
+            }
+
             return true;
-        } catch (Exception $e) {
-            return $e;
+        } catch(Exception $e) {
+            return "Error: " . $e->getMessage();
         }
+    }
+
+    public function eliminar($id) {
+        try {
+            $stmt = $this->conexion->prepare("UPDATE solicitudes_contacto SET estado = 'I' WHERE id = ?");
+            $stmt->execute([$id]);
+            return true;
+        } catch(Exception $e) {
+            return "Error: " . $e->getMessage();
+        }
+    }
+
+
+public function obtenerSolicitudesPorInstructor($id_instructor) {
+    try {
+        $sql = "SELECT * FROM solicitudes_contacto WHERE id_instructor = ?";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute([$id_instructor]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        return "Error: " . $e->getMessage();
     }
 }
+}
+?>

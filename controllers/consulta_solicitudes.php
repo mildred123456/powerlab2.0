@@ -1,12 +1,20 @@
 <?php
-include "../models/usuario.php";
-$usuario = new usuario();
+session_start();
+include_once "../models/solicitudes.php";
 
-if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
-    $respuesta = $usuario->ConsultaEspecifica($_POST["dato"], $_POST["valor"]);
-} else {
-   
-    $respuesta = $usuario->ConsultaEspecifica("rol", "instructor");
+// Validación de sesión y rol
+if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['rol'] !== 'instructor') {
+    die("Acceso denegado. Debes iniciar sesión como instructor.");
+}
+
+$id_instructor = $_SESSION['usuario']['id'];
+
+$solicitudes = new SolicitudesContacto();
+$respuesta = $solicitudes->obtenerSolicitudesPorInstructor($id_instructor);
+
+// Verificación por seguridad
+if (!is_array($respuesta)) {
+    $respuesta = [];
 }
 ?>
 
@@ -14,7 +22,7 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Consulta de instructores - PowerLab</title>
+    <title>Consulta de Usuarios - PowerLab</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -25,31 +33,24 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
     function editarFila(enlace) {
         const fila = enlace.closest('tr');
         const id = fila.querySelector('.id');
-        const nombre = fila.querySelector('.nombre');
-        const apellido = fila.querySelector('.apellido');
-        const correo = fila.querySelector('.correo');
-        const fecha_nacimiento = fila.querySelector('.fecha_nacimiento');
-        const genero = fila.querySelector('.genero');
+        const id_usuario = fila.querySelector('. id_usuario');
+        const id_instructor = fila.querySelector('.id_instructor');
         const estado = fila.querySelector('.estado');
-       
+        const fecha = fila.querySelector('.fecha');
 
         // valores actuales
         const idVal = id.textContent.trim();
-        const nombreVal = nombre.textContent.trim();
-        const apellidoVal = apellido.textContent.trim();
-        const correoVal = correo.textContent.trim();
-        const fechaNacimientoVal = fecha_nacimiento.textContent.trim();
-        const generoVal = genero.textContent.trim();          
+        const id_usuarioVal = id_usuario.textContent.trim();
+        const id_instructorVal = id_instructor.textContent.trim();
         const estadoVal = estado.textContent.trim();
-      
-
+        const fechaVal = fecha.textContent.trim();        
+        
+       
         // inputs
-        nombre.innerHTML = `<input type='text' name='nombre' class='form-control' value='${nombreVal}'>`;
-        apellido.innerHTML = `<input type='text' name='apellido' class='form-control' value='${apellidoVal}'>`;
-        correo.innerHTML = `<input type='text' name='correo' class='form-control' value='${correoVal}'>`;
-        fecha_nacimiento.innerHTML = `<input type='text' name='fecha_nacimiento' class='form-control' value='${fechaNacimientoVal}'>`;
-        genero.innerHTML = `<input type='text' name='genero' class='form-control' value='${generoVal}'>`;
+        id_usuario.innerHTML = `<input type='text' name='id_usuario' class='form-control' value='${id_usuarioVal}'>`;
+        id_instructor.innerHTML = `<input type='text' name='id_instructor' class='form-control' value='${id_instructorVal}'>`;
         estado.innerHTML = `<input type='text' name='estado' class='form-control' value='${estadoVal}'>`;
+        fecha.innerHTML = `<input type='text' name='fecha' class='form-control' value='${fecha}'>`;
 
         const btnEditar = fila.querySelector('.btn-editar');
         const form = document.getElementById("formu");
@@ -81,42 +82,41 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
 </head>
 
 <body>
-<div class="bg-white text-dark shadow-sm p-4 rounded">
+<div class="container bg-white text-dark shadow-sm">
         <header class="d-flex justify-content-between align-items-center mb-4">
             <div>
                 
-                <span class="text-warning">instructores - PowerLab</span>
+                <span class="table-light">Gestión de Usuarios - PowerLab</span>
             </div>
             <div>
-                <a href="admin-inicio.php" class="btn btn-outline-light btn-sm">← Volver</a>
+                <a href="admin-inicio.php" class="btn-outline-secondary">← Volver</a>
             </div>
         </header>
 
         <form id="formu" method="post">
-            <table  class="table table-striped table-hover">
+            <table class="table table-striped table-hover">
                 <thead class="text-warning">
                     <tr>
+               
                         <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Correo</th>
-                        <th>fecha_nacimiento</th>
-                        <th>Género</th> 
+                        <th>id_usuario</th>
+                        <th>id_instructor</th>
                         <th>estado</th>
-                        
+                        <th>fecha</th>
+                        <th>actualizar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($respuesta as $fila): ?>
                         <tr>
-                            <td class="id"><?= $fila[0] ?></td>
-                            <td class="nombre"><?= $fila[1] ?></td>
-                            <td class="apellido"><?= $fila[2] ?></td>
-                            <td class="correo"><?= $fila[3] ?></td>
-                            <td class="fecha_nacimiento"><?= $fila[4] ?></td>
-                            <td class="genero"><?= $fila[5] ?></td>
-                            <td class="estado"><?= $fila[7] ?></td>
-                            <td> <a href="../controllers/registrar_contacto.php?id_instructor=<?= $fila[0]; ?>&id_usuario=<?= $_SESSION['usuario']['id'] ?>" class="btn btn-info btn-sm">Contactar</a></td>
+                        <td class="id"><?= $fila['id'] ?></td>
+                        <td class="id_usuario"><?= $fila['id_usuario'] ?></td>
+                        <td class="id_instructor"><?= $fila['id_instructor'] ?></td>
+                        <td class="estado"><?= $fila['estado'] ?></td>
+                        <td class="fecha"><?= $fila['fecha'] ?></td>
+                        <td><button type="button" class="btn btn-warning btn-sm btn-editar" onclick="editarFila(this)">Editar</button></td>
+                        <td><button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminar(<?= $fila[0] ?>)">Eliminar</button></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
