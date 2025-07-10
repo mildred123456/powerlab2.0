@@ -13,7 +13,7 @@ class asignaciones {
             return $e;
         }
     }
-    
+
 public function ConsultaGeneral() {
     try {
         include "conexion.php";
@@ -51,6 +51,7 @@ public function ConsultaEspecifica($dato, $valor) {
         return $e;
     }
 }
+
 
 
 public function ACTUALIZAR($id, $contenido, $estado) {    

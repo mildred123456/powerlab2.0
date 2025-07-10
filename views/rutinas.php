@@ -27,12 +27,12 @@ if (!isset($_SESSION["usuario"])) {
 
 $rol = $_SESSION["usuario"]["rol"];
 
-if ($rol == "administrador") {
-    include "../views/administrador-inicio.php";
+if ($rol == "instructor") {
+    include "../views/instructor-inicio.php";
 } else if ($rol == "deportista") {
     include "../views/deportista-inicio.php";
-} else if ($rol == "instructor") {
-    include "../views/instructor-inicio.php";
+} else if ($rol == "administrador") {
+    include "../views/administrador-inicio.php";
 } else {
   echo "<script>
   alert('!ups¡ Algo salio mal :( Verifique de nuevo la informacion, gracias.');

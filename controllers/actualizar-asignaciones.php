@@ -2,7 +2,7 @@
 include "../models/asignaciones.php";
 
 $objeto = new asignaciones ();
-$respuesta = $objeto->ACTUALIZAR($_POST["contenido"], $_POST["estado"]);
+$respuesta = $objeto->ACTUALIZAR($_POST["id"],$_POST["contenido"], $_POST["estado"]);
 
 if($respuesta instanceof Exception){
   if($respuesta->getCode()==23000)

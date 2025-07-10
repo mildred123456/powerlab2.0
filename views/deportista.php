@@ -45,34 +45,6 @@ if ($rol == "deportista") {
 
 <section class="container mt-4">
   <div class="accordion" id="accordionExample">
-
-
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-           Consulta de rutinas
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <?php
-            include "../views/solo-buscador-rutinas.php";
-            echo "<hr >";
-            include "../controllers/solo-consulta-rutinas.php";
-          ?>
-        </div>
-      </div>
-    </div>
-</section>
-
-
-
-
-
-
-
-
-<section class="container mt-4">
-  <div class="accordion" id="accordionExample">
     
     <!-- CONSULTA DE USUARIOS -->
     <div class="bg-white text-dark shadow-sm">
@@ -90,26 +62,6 @@ if ($rol == "deportista") {
           ?>
         </div>
       </div>
-    </div>
-
-    <!-- REGISTRO DE USUARIOS -->
-    <div class="accordion-item bg-dark text-white">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-            Registro de Usuarios
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <?php include "../views/registros.html"; ?>
-        </div>
-      </div>
-    </div>
-
-    <div class="d-grid gap-2">
-      <a href="marketplace.html">
-      <button class="btn btn-outline-warning" type="button"> Tienda </button>
-</a>
     </div>
 
   </div>

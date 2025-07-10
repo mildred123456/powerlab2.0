@@ -61,7 +61,7 @@ if (!empty($_GET["id_deportista"])) {
             hiddenId.name = 'id';
             hiddenId.value = idVal;
             form.appendChild(hiddenId);
-            form.action = '../controllers/actualizar-asignacion.php';
+            form.action = '../controllers/actualizar-asignaciones.php';
             form.submit();
         };
 
