@@ -1,22 +1,19 @@
 <?php
 class asignaciones {
 
-public function REGISTRAR($id_deportista, $id_instructor, $tipo_asignacion, $contenido, $estado , $fecha_asignacion) {
-    try {
-        include "conexion.php";
-
-        $insertar = $conexion->prepare("INSERT INTO asignaciones (id_deportista, id_instructor, tipo_asignacion, contenido, estado, fecha_asignacion) VALUES (?, ?, ?, ?, ?,?)");
-        $insertar->execute([$id_deportista, $id_instructor, $tipo_asignacion, $contenido, $estado, $fecha_asignacion]);
-
-        $consultar = $conexion->prepare("SELECT * FROM asignaciones");
-        $consultar->execute();
-        return $consultar->fetchAll(PDO::FETCH_ASSOC); 
-
-    } catch(Exception $e) {
-        return $e;
+    public function REGISTRAR($id_deportista, $id_instructor, $tipo_asignacion, $contenido, $estado , $fecha_asignacion) {
+        try {
+            include "conexion.php";
+    
+            $insertar = $conexion->prepare("INSERT INTO asignaciones (id_deportista, id_instructor, tipo_asignacion, contenido, estado, fecha_asignacion) VALUES (?, ?, ?, ?, ?,?)");
+            $insertar->execute([$id_deportista, $id_instructor, $tipo_asignacion, $contenido, $estado, $fecha_asignacion]);
+    
+            return true; // ✅ Solo confirmamos que se guardó
+        } catch(Exception $e) {
+            return $e;
+        }
     }
-}
-
+    
 public function ConsultaGeneral() {
     try {
         include "conexion.php";

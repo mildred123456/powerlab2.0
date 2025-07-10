@@ -119,8 +119,7 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
                             <td class="genero"><?= $fila[5] ?></td>
                             <td class="estado"><?= $fila[7] ?></td>
                             <td><a href="ver_asignaciones.php?id_deportista=<?= $fila[0]; ?>" class="btn btn-info btn-sm">Ver rutinas</a> </td>
-                            <td><a href="asignar_rutina.php?id_deportista=<?= $_GET[0] ?>" class="btn btn-info btn-sm">Asignar rutina</a></td>
-                        </td>
+                            <td><a href="../views/asignar_rutina.php?id_deportista=<?= $fila[0] ?>" class="btn btn-info btn-sm">Asignar rutina</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
