@@ -1,7 +1,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
-    background: rgb(0, 0, 0);
-    color: #fff;
+    background: rgb(255, 255, 255);
+    color: #000000;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
