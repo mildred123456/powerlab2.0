@@ -116,7 +116,8 @@ if (!empty($_GET["id_deportista"])) {
                             <td class="contenido"><?= $fila[3] ?></td>
                             <td class="estado"><?= $fila[4] ?></td>
                             <td class="fecha_asignacion"><?= $fila[5] ?></td>
-                            <td><button type="button" class="btn btn-warning btn-sm btn-editar" onclick="editarFila(this)">actulizar</button></td>
+                            
+                            <td><button type="button" class="btn btn-warning btn-sm btn-editar" onclick="editarFila(this)">Actulizar</button></td>
                             <td><button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminar(<?= $fila[0] ?>)">Dar por terminada</button></td>
                             
                         </tr>

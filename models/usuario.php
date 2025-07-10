@@ -77,13 +77,13 @@ class usuario {
             include "conexion.php";
             $eliminar = $conexion->prepare("UPDATE usuario SET estado = 'I' WHERE id = ?");
             $eliminar->execute([$id]);
-            return true;
+            return $eliminar->rowCount() > 0;
         } catch(Exception $e) {
-            return $e;
+            error_log("Error al eliminar usuario: " . $e->getMessage());
+            return false;
         }
     }
 }
-
 
 class instructor extends usuario {
 
