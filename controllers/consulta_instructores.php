@@ -116,7 +116,7 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
                             <td class="fecha_nacimiento"><?= $fila[4] ?></td>
                             <td class="genero"><?= $fila[5] ?></td>
                             <td class="estado"><?= $fila[7] ?></td>
-    
+                            <td> <a href="../controllers/solicitar_contacto.php?id_instructor=<?= $fila[0]; ?>&id_usuario=<?= $_SESSION['usuario']['id'] ?>" class="btn btn-info btn-sm">Contactar</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
