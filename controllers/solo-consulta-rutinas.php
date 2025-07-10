@@ -33,7 +33,7 @@ function editarFila(enlace) {
     const nivelVal = fila.querySelector('.nivel').textContent.trim();
     const diasVal = fila.querySelector('.dias_por_semana').textContent.trim();
    
-
+}
     // Convertir celdas a inputs
     fila.querySelector('.titulo').innerHTML = `<input type='text' class='form-control' id='input_titulo' value='${tituloVal}'>`;
     fila.querySelector('.descripcion').innerHTML = `<input type='text' class='form-control' id='input_descripcion' value='${descripcionVal}'>`;

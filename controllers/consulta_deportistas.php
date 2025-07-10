@@ -115,9 +115,9 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
                             <td class="correo"><?= $fila[3] ?></td>
                             <td class="fecha_nacimiento"><?= $fila[4] ?></td>
                             <td class="genero"><?= $fila[5] ?></td>
-                            <td class="estado"><?= $fila[7] ?></td>
-                            
-                         
+                            <td class="estado"><?= $fila[7] ?>
+                            <td><a href="ver_asignaciones.php?id_deportista=<?= $fila[0]; ?>" class="btn btn-info btn-sm">Ver</a> </td>
+                        </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

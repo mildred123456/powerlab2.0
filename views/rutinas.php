@@ -119,27 +119,14 @@ if ($rol == "administrador") {
           <?php
             include "../views/buscador-asignaciones.php";
             echo "<hr>";
-            include "../controllers/consultar-asignaciones-instructor.php";
+            include "../controllers/consultar-asignaciones-deportista.php";
           ?>
         </div>
       </div>
     </div>
 
     
-    <div class="accordion-item bg-dark text-white">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-            Registro de rutinas
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <?php include "../views/registro-rutinas.html"; ?>
-        </div>
-      </div>
-    </div>
-
-  </div>
+    
 </section>
 
 <footer>
