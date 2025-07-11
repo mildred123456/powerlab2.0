@@ -83,29 +83,44 @@ if ($rol == "instructor") {
 ?>
 
 <section class="container mt-4 animate__animated animate__fadeInUp">
-  <div class="powerlab-card">
-    <a href="../views/ver-solicitudes.php" class="btn btn-outline-primary">📩 Ver solicitudes de contacto</a>
+  <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+    <div class="row g-0">
+      
+      <!-- COLUMNA IZQUIERDA: TEXTO Y BOTÓN -->
+      <div class="col-md-7 p-4">
+        <h3 class="fw-bold mb-2">Gestion de deportistas y rutinas</h3>
+        <p class="text-muted">Busca y gestiona los deportistas y rutinas registradas en PowerLab de manera sencilla.</p>
+        <button class="btn btn-outline-primary rounded-pill" onclick="toggleDeportistas()">
+           Ver deportistas
+        </button>
 
-    <div class="accordion mt-3" id="accordionExample">
-      <div class="accordion-item border-0 shadow-sm">
-        <h2 class="accordion-header" id="headingOne">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-             Consulta de deportistas
-          </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <?php
-              include "../views/buscador-deportistas.php";
-              echo "<hr>";
-              include "../controllers/consulta_deportistas.php";
-            ?>
-          </div>
+        <div id="contenedorDeportistas" class="mt-4" style="display: none;">
+          <?php
+            include "../views/buscador-deportistas.php";
+            echo "<hr>";
+            include "../controllers/consulta_deportistas.php";
+          ?>
         </div>
       </div>
+
+      <!-- COLUMNA DERECHA: IMAGEN AJUSTADA ARRIBA -->
+      <div class="col-md-5 text-center p-3 d-flex align-items-start justify-content-center">
+        <img src="https://i.pinimg.com/736x/7a/62/de/7a62dee5a38b704de99b20dea56e17ae.jpg"
+             alt="Consulta de deportistas"
+             class="img-fluid rounded-3 mt-2"
+             style="max-height: 200px; object-fit: contain;">
+      </div>
+
     </div>
   </div>
 </section>
+
+<script>
+  function toggleDeportistas() {
+    const contenedor = document.getElementById("contenedorDeportistas");
+    contenedor.style.display = (contenedor.style.display === "none") ? "block" : "none";
+  }
+</script>
 
 <?php
               include "../views/footer.html";

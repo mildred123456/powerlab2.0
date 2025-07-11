@@ -44,17 +44,16 @@ if ($rol == "deportista") {
 ?>
 
 <section class="container mt-4">
-  <div class="accordion" id="accordionExample">
-    
-    <!-- CONSULTA DE USUARIOS -->
-    <div class="bg-white text-dark shadow-sm">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-           Consulta de intructores
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
+  <div class="card shadow-sm rounded-4 border-0 overflow-hidden">
+    <div class="row g-0">
+
+      <!-- COLUMNA IZQUIERDA: TEXTO Y BOTÓN -->
+      <div class="col-md-7 p-4">
+        <h4 class="card-title mb-3">Instructores disponibles</h4>
+        <p class="card-text">Aquí puedes consultar y contactar instructores activos y más en PowerLab.</p>
+        <button class="btn btn-primary rounded-pill" onclick="toggleInstructores()">Ver instructores disponibles</button>
+
+        <div id="contenedorInstructores" class="mt-4" style="display: none;">
           <?php
             include "../views/buscador_instructores.php";
             echo "<hr>";
@@ -62,11 +61,25 @@ if ($rol == "deportista") {
           ?>
         </div>
       </div>
-    </div>
 
+      <!-- COLUMNA DERECHA: IMAGEN -->
+      <div class="col-md-5 text-center p-3 d-flex align-items-start justify-content-center">
+        <img src="https://i.pinimg.com/736x/38/1a/80/381a8009c5da504598e6f42e145b364d.jpg" 
+             alt="Instructores disponibles" 
+             class="img-fluid rounded-3 mt-2"
+             style="max-height: 200px; object-fit: contain;">
+      </div>
+
+    </div>
   </div>
 </section>
 
+<script>
+  function toggleInstructores() {
+    const contenedor = document.getElementById("contenedorInstructores");
+    contenedor.style.display = (contenedor.style.display === "none") ? "block" : "none";
+  }
+</script>
 
 
 <?php

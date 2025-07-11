@@ -80,43 +80,66 @@ if ($rol == "administrador") {
 }
 ?>
 
-<section class="container mt-5 animate__animated animate__fadeInUp">
-  <div class="accordion" id="accordionExample">
-    
-    <!-- CONSULTA DE USUARIOS -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-           Consulta de Usuarios
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <?php
-            include "../views/buscador_usuarios.php";
-            echo "<hr>";
-            include "../controllers/consulta_usuarios.php";
-          ?>
-        </div>
+<section class="container mt-5 animate__animated animate__fadeInUp text-center">
+
+  <!-- 🔍 CONSULTA DE USUARIOS -->
+  <div class="mb-5">
+    <div class="position-relative d-inline-block" onclick="toggleUsuarios()" style="cursor: pointer;">
+      <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" 
+           alt="Consulta de usuarios"
+           class="img-fluid"
+           style="max-width: 200px;">
+      <div class="position-absolute top-50 start-50 translate-middle bg-white bg-opacity-75 px-3 py-2 rounded-pill shadow">
+        <strong>Consulta de Usuarios</strong>
       </div>
     </div>
 
-    <!-- REGISTRO DE USUARIOS -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-           Registro de Usuarios
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <?php include "../views/registros.html"; ?>
-        </div>
+    <div id="contenedorUsuarios" class="mt-4" style="display: none;">
+      <div class="card shadow-sm rounded-4 border-0 p-4 text-start">
+        <?php
+          include "../views/buscador_usuarios.php";
+          echo "<hr>";
+          include "../controllers/consulta_usuarios.php";
+        ?>
       </div>
     </div>
-
   </div>
+
+  <!-- 📝 REGISTRO DE USUARIOS -->
+  <div>
+    <div class="position-relative d-inline-block" onclick="toggleRegistro()" style="cursor: pointer;">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" 
+           alt="Registro de usuarios"
+           class="img-fluid"
+           style="max-width: 200px;">
+      <div class="position-absolute top-50 start-50 translate-middle bg-white bg-opacity-75 px-3 py-2 rounded-pill shadow">
+        <strong>Registro de Usuarios</strong>
+      </div>
+    </div>
+
+    <div id="contenedorRegistro" class="mt-4" style="display: none;">
+      <div class="card shadow-sm rounded-4 border-0 p-4 text-start">
+        <?php include "../views/registros.html"; ?>
+      </div>
+    </div>
+  </div>
+
 </section>
+
+<script>
+  function toggleUsuarios() {
+    const contenedor = document.getElementById("contenedorUsuarios");
+    contenedor.style.display = (contenedor.style.display === "none") ? "block" : "none";
+  }
+
+  function toggleRegistro() {
+    const contenedor = document.getElementById("contenedorRegistro");
+    contenedor.style.display = (contenedor.style.display === "none") ? "block" : "none";
+  }
+</script>
+
+
+
 
 <?php
               include "../views/footer.html";
