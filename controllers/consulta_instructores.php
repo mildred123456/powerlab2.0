@@ -81,6 +81,18 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
 </head>
 
 <body>
+<?php
+include "../models/conexion.php";
+
+
+$id_usuario = $_SESSION['usuario']['id'];
+$res = $conexion->query("SELECT u.correo FROM solicitudes_contacto sc JOIN usuario u ON sc.id_instructor = u.id WHERE sc.id_usuario = $id_usuario AND sc.estado = 'aceptado' LIMIT 1");
+$instructor = $res->fetch(PDO::FETCH_ASSOC);
+
+if ($instructor) {
+    echo "<p style='background:#d4edda; padding:10px; color:#155724; border-radius:5px;'> Solicitud aceptada porfavor comunicarse para seguir el proseso. Tu instructor es: <strong>{$instructor['correo']}</strong></p>";
+}
+?>
 <div class="bg-white text-dark shadow-sm p-4 rounded">
         <header class="d-flex justify-content-between align-items-center mb-4">
             <div>

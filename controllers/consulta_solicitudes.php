@@ -103,22 +103,27 @@ if (!is_array($respuesta)) {
                         <th>id_instructor</th>
                         <th>estado</th>
                         <th>fecha</th>
-                        <th>actualizar</th>
-                        <th>Eliminar</th>
+                        <th>aceptar</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($respuesta as $fila): ?>
-                        <tr>
-                        <td class="id"><?= $fila['id'] ?></td>
-                        <td class="id_usuario"><?= $fila['id_usuario'] ?></td>
-                        <td class="id_instructor"><?= $fila['id_instructor'] ?></td>
-                        <td class="estado"><?= $fila['estado'] ?></td>
-                        <td class="fecha"><?= $fila['fecha'] ?></td>
-                        <td><button type="button" class="btn btn-warning btn-sm btn-editar" onclick="editarFila(this)">Editar</button></td>
-                        <td><button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminar(<?= $fila[0] ?>)">Eliminar</button></td>
-                        </tr>
-                    <?php endforeach; ?>
+                <?php foreach ($respuesta as $fila): ?>
+                 <tr>
+                 <td><?= $fila['id'] ?></td>
+                 <td><?= $fila['id_usuario'] ?></td>
+                 <td><?= $fila['id_instructor'] ?></td>
+                 <td><?= $fila['estado'] ?></td>
+                 <td><?= $fila['fecha'] ?></td>
+                 <td>
+            <?php if ($fila['estado'] === 'pendiente'): ?>
+                <a href="../controllers/aceptar_solicitud.php?id=<?= $fila['id'] ?>" class="btn btn-success btn-sm">Aceptar</a>
+            <?php else: ?>
+                <span class="text-success">Aceptada</span>
+            <?php endif; ?>
+        </td>
+    </tr>
+<?php endforeach; ?>
                 </tbody>
             </table>
         </form>
