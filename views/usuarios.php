@@ -47,6 +47,11 @@
       font-size: 0.9rem;
       color: #6c4c00;
     }
+    img:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
   </style>
 </head>
 
@@ -82,10 +87,10 @@ if ($rol == "administrador") {
 
 <section class="container mt-5 animate__animated animate__fadeInUp text-center">
 
-  <!-- 🔍 CONSULTA DE USUARIOS -->
+  <!--  CONSULTA DE USUARIOS -->
   <div class="mb-5">
     <div class="position-relative d-inline-block" onclick="toggleUsuarios()" style="cursor: pointer;">
-      <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" 
+      <img src="https://i.pinimg.com/1200x/f1/d3/8e/f1d38e127c9f772645bdb5eb72eb8d61.jpg" 
            alt="Consulta de usuarios"
            class="img-fluid"
            style="max-width: 200px;">
@@ -105,10 +110,10 @@ if ($rol == "administrador") {
     </div>
   </div>
 
-  <!-- 📝 REGISTRO DE USUARIOS -->
+  <!--  REGISTRO DE USUARIOS -->
   <div>
     <div class="position-relative d-inline-block" onclick="toggleRegistro()" style="cursor: pointer;">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" 
+      <img src="https://i.pinimg.com/736x/18/98/07/18980764d82d43b57ce1938d468ebe68.jpg" 
            alt="Registro de usuarios"
            class="img-fluid"
            style="max-width: 200px;">
