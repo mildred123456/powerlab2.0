@@ -80,58 +80,89 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
 </script>
 </head>
 
+<style>
+    body {
+      background-color: #fefefe;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .powerlab-card {
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+    }
+
+    .btn-info {
+      background-color: #ffa726;
+      border-color: #ffa726;
+      color: #fff;
+    }
+
+    .btn-info:hover {
+      background-color: #fb8c00;
+      border-color: #fb8c00;
+    }
+
+    .table thead {
+      background-color: #fff8e1;
+      color: #6c4c00;
+    }
+
+    .btn-outline-success,
+    .btn-outline-danger {
+      border-radius: 2rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
 <body>
-<div class="container bg-black text-white p-4 rounded">
-        <header class="d-flex justify-content-between align-items-center mb-4">
-            <div>
-                
-                <span class="text-warning">Gestión de deportistas - PowerLab</span>
-            </div>
-            <div>
-                <a href="admin-inicio.php" class="btn btn-outline-light btn-sm">← Volver</a>
-            </div>
-        </header>
 
-        <form id="formu" method="post">
-            <table class="table table-dark table-hover text-center align-middle">
-                <thead class="text-warning">
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Correo</th>
-                        <th>fecha_nacimiento</th>
-                        <th>Género</th> 
-                        <th>estado</th>
-                        <th></th>
-                        <th></th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($respuesta as $fila): ?>
-                        <tr>
-                            <td class="id"><?= $fila[0] ?></td>
-                            <td class="nombre"><?= $fila[1] ?></td>
-                            <td class="apellido"><?= $fila[2] ?></td>
-                            <td class="correo"><?= $fila[3] ?></td>
-                            <td class="fecha_nacimiento"><?= $fila[4] ?></td>
-                            <td class="genero"><?= $fila[5] ?></td>
-                            <td class="estado"><?= $fila[7] ?></td>
-                            <td><a href="ver_asignaciones.php?id_deportista=<?= $fila[0]; ?>" class="btn btn-info btn-sm">Ver rutinas</a> </td>
-                            <td><a href="../views/asignar_rutina.php?id_deportista=<?= $fila[0] ?>" class="btn btn-info btn-sm">Asignar rutina</a></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </form>
+<div class="container mt-5 animate__animated animate__fadeInUp powerlab-card">
+  <header class="d-flex justify-content-between align-items-center mb-4">
+    <span class="text-warning fs-5"> Gestión de deportistas - PowerLab</span>
+    <a href="admin-inicio.php" class="btn btn-outline-secondary btn-sm">← Volver</a>
+  </header>
 
-        <div class="text-center mt-4">
-            <a href="../controllers/reportexls_usuarios.php" class="btn btn-outline-success"> Exportar Excel</a>
-            <a href="../controllers/reportepdf_usuarios.php" class="btn btn-outline-danger"> Exportar PDF</a>
-        </div>
-    </div>
+  <form id="formu" method="post">
+    <table class="table table-bordered table-hover align-middle text-center">
+      <thead class="table-warning">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Correo</th>
+          <th>Fecha nacimiento</th>
+          <th>Género</th>
+          <th>Estado</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($respuesta as $fila): ?>
+          <tr>
+            <td class="id"><?= $fila[0] ?></td>
+            <td class="nombre"><?= $fila[1] ?></td>
+            <td class="apellido"><?= $fila[2] ?></td>
+            <td class="correo"><?= $fila[3] ?></td>
+            <td class="fecha_nacimiento"><?= $fila[4] ?></td>
+            <td class="genero"><?= $fila[5] ?></td>
+            <td class="estado"><?= $fila[7] ?></td>
+            <td><a href="ver_asignaciones.php?id_deportista=<?= $fila[0]; ?>" class="btn btn-info btn-sm"> Ver rutinas</a></td>
+            <td><a href="../views/asignar_rutina.php?id_deportista=<?= $fila[0] ?>" class="btn btn-info btn-sm"> Asignar rutina</a></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </form>
 
-    
+  <div class="text-center mt-4">
+    <a href="../controllers/reportexls_usuarios.php" class="btn btn-outline-success me-2"> Exportar Excel</a>
+    <a href="../controllers/reportepdf_usuarios.php" class="btn btn-outline-danger"> Exportar PDF</a>
+  </div>
+</div>
+
 </body>
 </html>

@@ -19,6 +19,57 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../views/css/consulta_usuarios.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+    body {
+        background-color: #fefefe;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .alert-aceptado {
+        background: #fff8e1;
+        color: #6c4c00;
+        border: 2px solid #ffeaa7;
+        border-radius: 1rem;
+        padding: 1rem 1.5rem;
+        box-shadow: 0 0 8px rgba(255, 193, 7, 0.2);
+        font-size: 1rem;
+    }
+
+    .table thead th {
+        vertical-align: middle;
+        font-weight: 600;
+    }
+
+    .btn-info {
+        background-color: #ffa726;
+        border-color: #ffa726;
+        color: #fff;
+    }
+
+    .btn-info:hover {
+        background-color: #fb8c00;
+        border-color: #fb8c00;
+    }
+
+    .powerlab-card {
+        background: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        padding: 2rem;
+    }
+
+    .powerlab-header {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #f57c00;
+    }
+
+    .nav-link {
+        color: #444 !important;
+    }
+
+</style>
     
 
     <script>
@@ -84,62 +135,64 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
 <?php
 include "../models/conexion.php";
 
-
 $id_usuario = $_SESSION['usuario']['id'];
 $res = $conexion->query("SELECT u.correo FROM solicitudes_contacto sc JOIN usuario u ON sc.id_instructor = u.id WHERE sc.id_usuario = $id_usuario AND sc.estado = 'aceptado' LIMIT 1");
 $instructor = $res->fetch(PDO::FETCH_ASSOC);
 
 if ($instructor) {
-    echo "<p style='background:#d4edda; padding:10px; color:#155724; border-radius:5px;'> Solicitud aceptada porfavor comunicarse para seguir el proseso. Tu instructor es: <strong>{$instructor['correo']}</strong></p>";
+    echo "<div class='container animate__animated animate__fadeInDown my-3'>
+        <div class='alert-aceptado text-center'>
+        ✅ Solicitud aceptada. Contacta a tu instructor para continuar. <br>
+        <strong>{$instructor['correo']}</strong>
+        </div>
+    </div>";
 }
 ?>
-<div class="bg-white text-dark shadow-sm p-4 rounded">
-        <header class="d-flex justify-content-between align-items-center mb-4">
-            <div>
-                
-                <span class="text-warning">instructores - PowerLab</span>
-            </div>
-            <div>
-                <a href="admin-inicio.php" class="btn btn-outline-light btn-sm">← Volver</a>
-            </div>
-        </header>
 
-        <form id="formu" method="post">
-            <table  class="table table-striped table-hover">
-                <thead class="text-warning">
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Correo</th>
-                        <th>fecha_nacimiento</th>
-                        <th>Género</th> 
-                        <th>estado</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($respuesta as $fila): ?>
-                        <tr>
-                            <td class="id"><?= $fila[0] ?></td>
-                            <td class="nombre"><?= $fila[1] ?></td>
-                            <td class="apellido"><?= $fila[2] ?></td>
-                            <td class="correo"><?= $fila[3] ?></td>
-                            <td class="fecha_nacimiento"><?= $fila[4] ?></td>
-                            <td class="genero"><?= $fila[5] ?></td>
-                            <td class="estado"><?= $fila[7] ?></td>
-                            <td> <a href="../controllers/registrar_contacto.php?id_instructor=<?= $fila[0]; ?>&id_usuario=<?= $_SESSION['usuario']['id'] ?>" class="btn btn-info btn-sm">Contactar</a></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </form>
+<div class="container powerlab-card animate__animated animate__fadeInUp mt-4">
+    <header class="d-flex justify-content-between align-items-center mb-4">
+        <span class="powerlab-header">Instructores - PowerLab</span>
+        <a href="admin-inicio.php" class="btn btn-outline-secondary btn-sm">← Volver</a>
+    </header>
 
-        <div class="text-center mt-4">
-            <a href="../controllers/reportexls_usuarios.php" class="btn btn-outline-success"> Exportar Excel</a>
-            <a href="../controllers/reportepdf_usuarios.php" class="btn btn-outline-danger"> Exportar PDF</a>
-        </div>
-    </div>
+    <form id="formu" method="post">
+    <table class="table table-bordered table-hover align-middle text-center">
+        <thead class="table-warning">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Fecha Nacimiento</th>
+                <th>Género</th> 
+                <th>Estado</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($respuesta as $fila): ?>
+                <tr>
+                    <td class="id"><?= $fila[0] ?></td>
+                    <td class="nombre"><?= $fila[1] ?></td>
+                    <td class="apellido"><?= $fila[2] ?></td>
+                    <td class="correo"><?= $fila[3] ?></td>
+                    <td class="fecha_nacimiento"><?= $fila[4] ?></td>
+                    <td class="genero"><?= $fila[5] ?></td>
+                    <td class="estado"><?= $fila[7] ?></td>
+                    <td>
+                        <a href="../controllers/registrar_contacto.php?id_instructor=<?= $fila[0]; ?>&id_usuario=<?= $_SESSION['usuario']['id'] ?>" class="btn btn-info btn-sm">Contactar</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</form>
+
+<div class="text-center mt-4">
+    <a href="../controllers/reportexls_usuarios.php" class="btn btn-outline-success">📥 Exportar Excel</a>
+    <a href="../controllers/reportepdf_usuarios.php" class="btn btn-outline-danger">📄 Exportar PDF</a>
+</div>
+</div> 
 
     
 </body>

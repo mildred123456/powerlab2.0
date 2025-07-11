@@ -55,7 +55,7 @@ if (!$id_deportista || !$id_instructor) {
     </div>
 
     <div class="d-flex justify-content-between">
-      <button type="submit" class="btn btn-custom">Guardar asignación</button>
+      <button type="submit" class="btn btn-warning">Guardar asignación</button>
       <a href="consulta_asignaciones.php" class="btn btn-outline-secondary">Cancelar</a>
     </div>
   </form>
