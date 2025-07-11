@@ -54,7 +54,23 @@
   </style>
 </head>
 <body>
-
+<section class="bg-white border-bottom">
+    <div class="container text-center py-3">
+      <div class="row align-items-center">
+        <div class="col-4 text-start">
+          <img src="../imagenes/logopower.png" alt="Logo" style="height: 60px;">
+        </div>
+        <div class="col-8">
+          <nav class="nav nav-pills justify-content-end">
+            <a class="nav-link" href="#">Tienda</a>
+            <a class="nav-link" href="#">Rutinas</a>
+            <a class="nav-link" href="#">Configuración</a>
+            <a class="nav-link text-danger" href="../controllers/logout.php">Salir</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
 <section class="container mt-5 animate__animated animate__fadeInUp">
   <div class="accordion" id="accordionExample">
     <div class="accordion-item">

@@ -122,6 +122,46 @@ if ($rol == "instructor") {
   }
 </script>
 
+
+
+<!-- TARJETA FIJA ABAJO -->
+<div id="rutinaCard" class="position-fixed bottom-0 start-50 translate-middle-x mb-4 animate__animated animate__fadeInUp" style="z-index: 1050; transition: opacity 0.5s ease; display: block;">
+  <div class="card card-magica shadow">
+    <div class="card-header text-center d-flex justify-content-between align-items-center">
+      <span> ¡ver solicitudes!</span>
+      <button type="button" class="btn-close" aria-label="Cerrar" onclick="cerrarTarjetaRutina()" style="filter: invert(1);"></button>
+    </div>
+    <div class="card-body text-center">
+      <p class="card-text mb-3">Consulta que deportistas quieren que tu seas parte de su proseso</p>
+      <a href="ver-solicitudes.php" class="btn btn-outline-warning fw-bold px-4 rounded-pill">Ver solicitudes</a>
+    </div>
+  </div>
+</div>
+
+<!-- BOTÓN PARA VOLVER A MOSTRAR -->
+<div class="position-fixed bottom-0 end-0 me-4 mb-4" style="z-index: 1050;">
+  <button class="btn btn-warning rounded-pill shadow fw-bold" onclick="mostrarTarjetaRutina()">Mostrar solicitudes</button>
+</div>
+
+<!-- SCRIPT -->
+<script>
+  function cerrarTarjetaRutina() {
+    const card = document.getElementById('rutinaCard');
+    card.classList.remove('animate__fadeInUp');
+    card.classList.add('animate__fadeOutDown');
+
+    setTimeout(() => {
+      card.style.display = 'none';
+    }, 700);
+  }
+
+  function mostrarTarjetaRutina() {
+    const card = document.getElementById('rutinaCard');
+    card.style.display = 'block';
+    card.classList.remove('animate__fadeOutDown');
+    card.classList.add('animate__fadeInUp');
+  }
+</script>
 <?php
               include "../views/footer.html";
               

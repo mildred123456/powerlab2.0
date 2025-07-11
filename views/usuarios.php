@@ -90,7 +90,7 @@ if ($rol == "administrador") {
   <!--  CONSULTA DE USUARIOS -->
   <div class="mb-5">
     <div class="position-relative d-inline-block" onclick="toggleUsuarios()" style="cursor: pointer;">
-      <img src="https://i.pinimg.com/1200x/f1/d3/8e/f1d38e127c9f772645bdb5eb72eb8d61.jpg" 
+      <img src="https://i.pinimg.com/736x/41/3a/51/413a51a5a89c36f8ab5d7b2824223855.jpg" 
            alt="Consulta de usuarios"
            class="img-fluid"
            style="max-width: 200px;">
@@ -113,7 +113,7 @@ if ($rol == "administrador") {
   <!--  REGISTRO DE USUARIOS -->
   <div>
     <div class="position-relative d-inline-block" onclick="toggleRegistro()" style="cursor: pointer;">
-      <img src="https://i.pinimg.com/736x/18/98/07/18980764d82d43b57ce1938d468ebe68.jpg" 
+      <img src="https://i.pinimg.com/736x/85/52/b2/8552b27681bd0181dd158962b4812b09.jpg" 
            alt="Registro de usuarios"
            class="img-fluid"
            style="max-width: 200px;">

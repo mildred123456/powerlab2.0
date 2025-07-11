@@ -118,7 +118,6 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
 </head>
 
 <body>
-
 <div class="container mt-5 animate__animated animate__fadeInUp powerlab-card">
   <header class="d-flex justify-content-between align-items-center mb-4">
     <span class="text-warning fs-5"> Gestión de deportistas - PowerLab</span>
