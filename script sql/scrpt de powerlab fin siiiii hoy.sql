@@ -79,3 +79,5 @@ INSERT INTO asignaciones (
     'completado',
     'Rutina de pierna: sentadillas, prensa, zancadass.'
 );
+ALTER TABLE solicitudes_contacto
+ADD UNIQUE INDEX solicitud_unica (id_usuario, id_instructor, estado);
