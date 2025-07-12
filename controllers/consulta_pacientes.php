@@ -93,8 +93,8 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
         </header>
 
         <form id="formu" method="post">
-            <table class="table table-striped table-hover">
-                <thead class="text-warning">
+            <table  class="table table-bordered table-hover align-middle text-center">
+                <thead class="table-warning">
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>

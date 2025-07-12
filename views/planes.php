@@ -96,9 +96,7 @@ if ($rol == "administrador") {
 
 </section>
 
-<footer>
-  PowerLab © 2025 - Todos los derechos reservados
-</footer>
+
 
 <!-- Bootstrap Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -110,5 +108,8 @@ if ($rol == "administrador") {
   }
 </script>
 
+<?php
+include "../views/footer.html";
+?>
 </body>
 </html>
