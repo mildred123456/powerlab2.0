@@ -124,8 +124,16 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
         </form>
 
         <div class="text-center mt-4">
-            <a href="../controllers/reportexls_usuarios.php" class="btn btn-outline-success"> Exportar Excel</a>
-            <a href="../controllers/reportepdf_usuarios.php" class="btn btn-outline-danger"> Exportar PDF</a>
+        <form method="POST" action="../controllers/reportexls_pacientes.php" target="_blank" class="d-inline">
+  <input type="hidden" name="dato" value="<?= $_POST['dato'] ?? '' ?>">
+  <input type="hidden" name="valor" value="<?= $_POST['valor'] ?? '' ?>">
+  <button type="submit" class="btn btn-outline-success"> Exportar Excel</button>
+</form>
+<form method="POST" action="../controllers/reportepdf_pacientes.php" target="_blank" class="d-inline">
+  <input type="hidden" name="dato" value="<?= $_POST['dato'] ?? '' ?>">
+  <input type="hidden" name="valor" value="<?= $_POST['valor'] ?? '' ?>">
+  <button type="submit" class="btn btn-outline-danger"> Exportar PDF</button>
+</form>
         </div>
     </div>
 

@@ -161,7 +161,7 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
   <form method="POST" action="../controllers/reportexls_deportistas.php" target="_blank" class="d-inline">
   <input type="hidden" name="dato" value="<?= $_POST['dato'] ?? '' ?>">
   <input type="hidden" name="valor" value="<?= $_POST['valor'] ?? '' ?>">
-  <button type="submit" class="btn btn-outline-success">📥 Exportar Excel</button>
+  <button type="submit" class="btn btn-outline-success"> Exportar Excel</button>
 </form>
     <a href="../controllers/reportepdf_deportistas.php" class="btn btn-outline-danger"> Exportar PDF</a>
   </div>

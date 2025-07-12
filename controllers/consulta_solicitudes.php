@@ -129,8 +129,8 @@ if (!is_array($respuesta)) {
         </form>
 
         <div class="text-center mt-4">
-            <a href="../controllers/reportexls_usuarios.php" class="btn btn-outline-success"> Exportar Excel</a>
-            <a href="../controllers/reportepdf_usuarios.php" class="btn btn-outline-danger"> Exportar PDF</a>
+            <a href="../controllers/reportexls_solicitudes.php" class="btn btn-outline-success"> Exportar Excel</a>
+            <a href="../controllers/reportepdf_solicitudes.php" class="btn btn-outline-danger"> Exportar PDF</a>
         </div>
     </div>
 

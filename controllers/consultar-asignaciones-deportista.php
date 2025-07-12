@@ -127,7 +127,7 @@ if (!empty($_GET["id_deportista"])) {
         </form>
 
         <div class="text-center mt-4">
-            <a href="../controllers/reportexls_usuarios.php" class="btn btn-outline-success"> Exportar Excel</a>
-            <a href="../controllers/reportepdf_usuarios.php" class="btn btn-outline-danger"> Exportar PDF</a>
+            <a href="../controllers/reportexls_asignaciones.php" class="btn btn-outline-success"> Exportar Excel</a>
+            <a href="../controllers/reportepdf_asignaciones.php" class="btn btn-outline-danger"> Exportar PDF</a>
         </div>
     </div>
