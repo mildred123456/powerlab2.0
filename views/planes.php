@@ -59,13 +59,23 @@ if ($rol == "administrador") {
 }
 ?>
 
-<section class="container mt-5 animate__animated animate__fadeInUp text-center">
+<section class="container mt-5 animate__animated animate__fadeInUp">
 
-  <!-- Consulta de Usuarios -->
-  <div class="card shadow-sm rounded-4 border-0 mb-4 p-4">
-    <h4 class="fw-bold mb-2">Consulta de Pacientes</h4>
+  <!-- Encabezado con imagen de nutrición -->
+  <div class="text-center mb-5">
+    <img src="https://i.pinimg.com/736x/dd/58/79/dd5879b5c9801be124138f768abf926c.jpg"
+         alt="Nutrición"
+         class="img-fluid rounded-circle shadow-sm mb-3"
+         style="max-width: 130px; height: auto;">
+    <h2 class="fw-bold">Panel del Nutricionista</h2>
+    <p class="text-muted">Gestiona pacientes, planes alimenticios y seguimientos desde un solo lugar </p>
+  </div>
+
+  <!-- Consulta de Pacientes -->
+  <div class="card shadow-sm rounded-4 border-0 mb-5 p-4">
+    <h4 class="fw-bold mb-2"><i class="bi bi-person-circle me-2"></i>Consulta de Pacientes</h4>
     <p class="text-muted">Aquí puedes buscar y consultar los pacientes registrados para seguimiento nutricional.</p>
-    <button class="btn btn-outline-primary rounded-pill" onclick="togglePacientes()">👥 Ver pacientes</button>
+    <button class="btn btn-outline-primary rounded-pill" onclick="togglePacientes()"> Ver pacientes</button>
 
     <div id="contenedorPacientes" class="mt-4" style="display: none;">
       <div class="card shadow-sm rounded-4 border-0 p-4 text-start">
@@ -78,17 +88,10 @@ if ($rol == "administrador") {
     </div>
   </div>
 
-  <!-- Registro de planes -->
-  <div class="card shadow-sm rounded-4 border-0 p-4">
-    <h4 class="fw-bold mb-2">Registro de Planes Nutricionales</h4>
-    <p class="text-muted">Desde aquí puedes registrar y asignar nuevos planes nutricionales a los pacientes.</p>
-    <button class="btn btn-outline-success rounded-pill" onclick="togglePlanes()">📝 Registrar plan</button>
-
-    <div id="contenedorPlanes" class="mt-4" style="display: none;">
-      <div class="card shadow-sm rounded-4 border-0 p-4 text-start">
-        <?php include "../views/planes.html"; ?>
-      </div>
-    </div>
+  <!-- Tarjeta motivacional -->
+  <div class="card motivational-card rounded-4 p-4 shadow-sm text-center" style="background-color: #fffbe6; border-left: 6px solid #f7c948;">
+    <h5 class="fw-semibold mb-3"> "Que tu medicina sea tu alimento y tu alimento, tu medicina."</h5>
+    <p class="mb-0 text-muted">— Hipócrates</p>
   </div>
 
 </section>
@@ -97,14 +100,12 @@ if ($rol == "administrador") {
   PowerLab © 2025 - Todos los derechos reservados
 </footer>
 
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 <script>
   function togglePacientes() {
     const contenedor = document.getElementById("contenedorPacientes");
-    contenedor.style.display = (contenedor.style.display === "none") ? "block" : "none";
-  }
-
-  function togglePlanes() {
-    const contenedor = document.getElementById("contenedorPlanes");
     contenedor.style.display = (contenedor.style.display === "none") ? "block" : "none";
   }
 </script>
