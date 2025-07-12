@@ -137,7 +137,11 @@ if ($respuesta instanceof Exception) {
         </form>
 
         <div class="text-center mt-4">
-            <a href="../controllers/reportexls_usuarios.php" class="btn btn-outline-success"> Exportar Excel</a>
+        <form method="POST" action="../controllers/reportexls_usuarios.php" target="_blank" class="d-inline">
+  <input type="hidden" name="dato" value="<?= $_POST['dato'] ?? '' ?>">
+  <input type="hidden" name="valor" value="<?= $_POST['valor'] ?? '' ?>">
+  <button type="submit" class="btn btn-outline-success">📥 Exportar Excel</button>
+</form>
             <a href="../controllers/reportepdf_usuarios.php" class="btn btn-outline-danger"> Exportar PDF</a>
         </div>
     </div>

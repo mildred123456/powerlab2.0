@@ -1,38 +1,47 @@
 <?php
-// Configuración de cabecera para exportar a Excel
-header("Content-Type: application/vnd.ms-excel; charset=ISO-8859-1");
-header("Content-Disposition: attachment; filename=usuarios_powerlab.xls");
+// Forzar descarga como archivo Excel
+header("Content-Type: application/vnd.ms-excel; charset=UTF-8");
+header("Content-Disposition: attachment; filename=usuarios.xls");
 header("Pragma: no-cache");
 header("Expires: 0");
 
-ob_start();
-session_start();
-$respuesta = $_SESSION["respuesta"];
+// Incluir tu modelo
+include "../models/usuario.php";
+$usuario = new usuario();
 
-echo "<meta http-equiv='Content-Type' content='text/html; charset=ISO-8859-1'>";
+// Obtener los datos desde la base
+if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
+    $respuesta = $usuario->ConsultaEspecifica($_POST["dato"], $_POST["valor"]);
+} else {
+    $respuesta = $usuario->ConsultaGeneral();
+}
+
+// Inicia tabla
 echo "<table border='1'>
-        <tr style='background-color:#f2f2f2; font-weight:bold;'>
+        <tr>
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>fecha_nacimiento</th>
-            <th>Género</th>
             <th>Correo</th>
+            <th>Fecha de nacimiento</th>
+            <th>Genero</th>
             <th>Rol</th>
-            <th>contrasenia</th>
+            <th>Estado</th>
+            <th>Contrasenia</th>
         </tr>";
 
-foreach($respuesta as $fila){
-    echo "<tr>
-            <td>".utf8_decode($fila[0])."</td>
-            <td>".utf8_decode($fila[1])."</td>
-            <td>".utf8_decode($fila[2])."</td>
-            <td>".utf8_decode($fila[3])."</td>
-            <td>".utf8_decode($fila[5])."</td>
-            <td>".utf8_decode($fila[6])."</td>
-            <td>".utf8_decode($fila[7])."</td>
-            <td>".utf8_decode($fila[8])."</td>
-        </tr>";
+if (is_array($respuesta) && count($respuesta) > 0) {
+    foreach ($respuesta as $fila) {
+        echo "<tr>";
+        for ($i = 0; $i <= 8; $i++) {
+            $valor = isset($fila[$i]) ? $fila[$i] : '';
+            echo "<td>" . htmlspecialchars($valor, ENT_QUOTES, 'UTF-8') . "</td>";
+        }
+        echo "</tr>";
+    }
+} else {
+    echo "<tr><td colspan='9'>No hay datos disponibles</td></tr>";
 }
+
 echo "</table>";
 ?>
