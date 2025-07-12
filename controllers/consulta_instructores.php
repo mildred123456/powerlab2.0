@@ -1,11 +1,16 @@
 <?php
+// Incluye el archivo del modelo que contiene la clase usuario y sus métodos
 include "../models/usuario.php";
+
+// Crea una instancia del objeto usuario para acceder a sus métodos
 $usuario = new usuario();
 
+// Verifica si se enviaron datos específicos por el formulario (por ejemplo, para filtrar por nombre, correo, etc.)
 if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
+    // Realiza una consulta específica con los valores recibidos del formulario
     $respuesta = $usuario->ConsultaEspecifica($_POST["dato"], $_POST["valor"]);
 } else {
-   
+    // Si no se envían filtros, por defecto muestra solo los usuarios con rol "instructor"
     $respuesta = $usuario->ConsultaEspecifica("rol", "instructor");
 }
 ?>
