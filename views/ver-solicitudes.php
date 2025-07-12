@@ -28,7 +28,9 @@
   include "../views/buscador-asignaciones.php";
   echo "<hr>";
   include "../controllers/consulta_solicitudes.php";
-
+  include "../views/footer.html";
     ?>
+
+    
 </body>
 </html>

@@ -3,88 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Usuarios - PowerLab</title>
+  <title>Nutricionista - PowerLab</title>
   <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/index.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
-  <link href="../views/css/registro.css" rel="stylesheet" />
- 
+  <style>
+    body {
+      background: linear-gradient(135deg, #f9f9f9, #ffffff);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      flex: 1;
+    }
+    footer {
+      background-color: #fff;
+      text-align: center;
+      padding: 1rem;
+      border-top: 1px solid #e5e5e5;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
 </head>
 
 <body>
+
 <?php
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
   echo "<script>
-  alert('!ups¡ Algo salio mal :( Verifique de nuevo la informacion, gracias.');
+  alert('¡Ups! Algo salió mal :( Verifica la información, gracias.');
   location.href='../views/inicio-de-sesion.php';
 </script>";
-    exit();
+  exit();
 }
 
 $rol = $_SESSION["usuario"]["rol"];
 
 if ($rol == "administrador") {
     include "../views/administrador-inicio.php";
-} else if ($rol == "deportista") {
-    include "../views/deportista-inicio.php";
-} else if ($rol == "instructor") {
-    include "../views/instructor-inicio.php";
-}  else if ($rol == "nutricionista") {
+} else if ($rol == "nutricionista") {
     include "../views/nutricionista-inicio.php";
 } else {
   echo "<script>
-  alert('!ups¡ Algo salio mal :( Verifique de nuevo la informacion, gracias.');
+  alert('¡Ups! Acceso no autorizado.');
   location.href='../views/inicio-de-sesion.php';
-</script>"; // Solo si el rol no coincide
-    exit();
+</script>";
+  exit();
 }
 ?>
 
-<section class="container mt-4">
-  <div class="accordion" id="accordionExample">
-    
-    <!-- CONSULTA DE USUARIOS -->
-    <div class="bg-white text-dark shadow-sm">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-           Consulta de Usuarios
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <?php
-            include "../views/buscador_pacientes.php";
-            echo "<hr>";
-            include "../controllers/consulta_pacientes.php";
-          ?>
-        </div>
+<section class="container mt-5 animate__animated animate__fadeInUp text-center">
+
+  <!-- Consulta de Usuarios -->
+  <div class="card shadow-sm rounded-4 border-0 mb-4 p-4">
+    <h4 class="fw-bold mb-2">Consulta de Pacientes</h4>
+    <p class="text-muted">Aquí puedes buscar y consultar los pacientes registrados para seguimiento nutricional.</p>
+    <button class="btn btn-outline-primary rounded-pill" onclick="togglePacientes()">👥 Ver pacientes</button>
+
+    <div id="contenedorPacientes" class="mt-4" style="display: none;">
+      <div class="card shadow-sm rounded-4 border-0 p-4 text-start">
+        <?php
+          include "../views/buscador_pacientes.php";
+          echo "<hr>";
+          include "../controllers/consulta_pacientes.php";
+        ?>
       </div>
     </div>
-
-   
-    <div class="accordion-item bg-dark text-white">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-            Registro de planes
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <?php include "../views/planes.html"; ?>
-        </div>
-      </div>
-    </div>
-
   </div>
+
+  <!-- Registro de planes -->
+  <div class="card shadow-sm rounded-4 border-0 p-4">
+    <h4 class="fw-bold mb-2">Registro de Planes Nutricionales</h4>
+    <p class="text-muted">Desde aquí puedes registrar y asignar nuevos planes nutricionales a los pacientes.</p>
+    <button class="btn btn-outline-success rounded-pill" onclick="togglePlanes()">📝 Registrar plan</button>
+
+    <div id="contenedorPlanes" class="mt-4" style="display: none;">
+      <div class="card shadow-sm rounded-4 border-0 p-4 text-start">
+        <?php include "../views/planes.html"; ?>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <footer>
   PowerLab © 2025 - Todos los derechos reservados
 </footer>
+
+<script>
+  function togglePacientes() {
+    const contenedor = document.getElementById("contenedorPacientes");
+    contenedor.style.display = (contenedor.style.display === "none") ? "block" : "none";
+  }
+
+  function togglePlanes() {
+    const contenedor = document.getElementById("contenedorPlanes");
+    contenedor.style.display = (contenedor.style.display === "none") ? "block" : "none";
+  }
+</script>
 
 </body>
 </html>

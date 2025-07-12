@@ -3,9 +3,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>instructor - PowerLab</title>
+    <title>nutricionista - PowerLab</title>
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="/css/index.css"> <!-- Asegúrate de tenerlo -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">

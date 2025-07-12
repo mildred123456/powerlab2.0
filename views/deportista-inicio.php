@@ -74,18 +74,18 @@
   </section>
 
   <!-- Bienvenida -->
-  <h1 class="welcome-title animate__animated animate__fadeInDown">👋 ¡Bienvenido, usuario!</h1>
+  <h1 class="welcome-title animate__animated animate__fadeInDown"> ¡Bienvenido, Deportista!</h1>
 
   <!-- TARJETA FIJA ABAJO -->
 <div id="rutinaCard" class="position-fixed bottom-0 start-50 translate-middle-x mb-4 animate__animated animate__fadeInUp" style="z-index: 1050; transition: opacity 0.5s ease; display: block;">
   <div class="card card-magica shadow">
     <div class="card-header text-center d-flex justify-content-between align-items-center">
-      <span>💪 ¡Tienes nuevas rutinas!</span>
+      <span> ¡Tienes nuevas rutinas!</span>
       <button type="button" class="btn-close" aria-label="Cerrar" onclick="cerrarTarjetaRutina()" style="filter: invert(1);"></button>
     </div>
     <div class="card-body text-center">
       <p class="card-text mb-3">Consulta las rutinas que tu instructor ha preparado especialmente para ti.</p>
-      <a href="mis-rutinas.php" class="btn btn-outline-warning fw-bold px-4 rounded-pill">Ver mis rutinas</a>
+      <a href="error500.html" class="btn btn-outline-warning fw-bold px-4 rounded-pill">Ver mis rutinas</a>
     </div>
   </div>
 </div>

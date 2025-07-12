@@ -85,7 +85,7 @@ if (!empty($_POST["dato"]) && !empty($_POST["valor"])) {
         <header class="d-flex justify-content-between align-items-center mb-4">
             <div>
                 
-                <span class="text-warning">Gestión de deportistas - PowerLab</span>
+                <span class="text-warning">Gestión de pacientes - PowerLab</span>
             </div>
             <div>
                 <a href="admin-inicio.php" class="btn btn-outline-light btn-sm">← Volver</a>
